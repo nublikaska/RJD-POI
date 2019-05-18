@@ -14,8 +14,6 @@ class APIManager {
     
     let db = Firestore.firestore()
     
-    //                    print("\(document.documentID) => \(document.data())")
-    
     func getAllRoutes(completion: @escaping ([RoutesModel]) -> ()) {
         
         db.collection("Route").getDocuments() { (querySnapshot, err) in
@@ -76,6 +74,7 @@ class APIManager {
     }
     
     func getAllStations(completion: @escaping ([StationModel]) -> ()) {
+        
         db.collection("Station").getDocuments() { (querySnapshot, err) in
             var stations = [StationModel]()
             if let err = err {
@@ -89,6 +88,19 @@ class APIManager {
                 }
             }
             completion(stations)
+        }
+    }
+    
+    func getStationDetailedInfoWith(stationId: String, completion: @escaping (StationDetailedModel) -> ()) {
+        
+        let querry = db.collection("StationDetailed").document(stationId)
+        querry.getDocument() { (document, err) in
+            if let document = document, document.exists, let data = document.data() {
+                let stationModel = Mapper<StationDetailedModel>().map(JSON: data)
+                if let station = stationModel {
+                    completion(station)
+                }
+            }
         }
     }
 }

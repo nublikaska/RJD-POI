@@ -29,3 +29,22 @@ struct StationModel: Mappable {
         detailId <- map["detailId"]
     }
 }
+
+struct StationDetailedModel: Mappable {
+    
+    var id: String = ""
+    var detailInfo: String = ""
+    var poiIds = [String]()
+    
+    var stationName: String = ""
+    var areaName: String = ""
+    var arrival: String = ""
+    var stopTime: Int = 0
+
+    init?(map: Map) { }
+    
+    mutating func mapping(map: Map) {
+        detailInfo <- map["detailInfo"]
+        poiIds <- map["poiIds"]
+    }
+}

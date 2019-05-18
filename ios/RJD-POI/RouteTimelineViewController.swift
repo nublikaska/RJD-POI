@@ -79,4 +79,28 @@ extension RouteTimelineViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let route = route {
+            let station = route.stations[indexPath.row]
+            
+            let hud = JGProgressHUD(style: .dark)
+            hud.textLabel.text = "Получение детальной информации по маршруту..."
+            hud.show(in: self.view)
+            
+            let api = APIManager()
+            api.getStationDetailedInfoWith(stationId: station.detailId) { [weak self] details in
+                
+                var detailsModel = details
+                detailsModel.stationName = station.stopsName
+                detailsModel.areaName = station.areaName
+                detailsModel.stopTime = station.stopTime
+                
+                let controller = StationDetailsViewController(details: detailsModel)
+                self?.navigationController?.pushViewController(controller, animated: true)
+                hud.dismiss(animated: true)
+            }
+        }
+    }
 }
