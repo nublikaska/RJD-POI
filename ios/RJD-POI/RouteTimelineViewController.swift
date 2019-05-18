@@ -55,6 +55,8 @@ class RouteTimelineViewController: UIViewController {
         timelineTableView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
+        
+        self.view.endEditing(true)
     }
 }
 

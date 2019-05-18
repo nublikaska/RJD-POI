@@ -55,6 +55,11 @@ class SelectStationViewController: UIViewController {
             maker.edges.equalToSuperview()
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.endEditing(true)
+    }
 }
 
 extension SelectStationViewController: UITableViewDelegate, UITableViewDataSource {

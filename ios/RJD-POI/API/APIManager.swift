@@ -47,7 +47,9 @@ class APIManager {
                     }
                 }
             }
-            completion(stations)
+            
+            let sortedStations = stations.sorted(by: { $0.order < $1.order })
+            completion(sortedStations)
         }
     }
     

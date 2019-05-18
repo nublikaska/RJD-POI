@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		854D4993B35E5424CC5BA8F6 /* Pods_RJD_POITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 366D7DEB09257965D56E0156 /* Pods_RJD_POITests.framework */; };
 		AA5917A1229043B800E174DD /* StationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917A0229043B800E174DD /* StationDetailsViewController.swift */; };
+		AA5917A322904B1300E174DD /* StationHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917A222904B1300E174DD /* StationHeaderTableViewCell.swift */; };
+		AA5917A522904EAF00E174DD /* StationTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917A422904EAF00E174DD /* StationTimeTableViewCell.swift */; };
 		AA78CA37226F90880038FCAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78CA36226F90880038FCAE /* AppDelegate.swift */; };
 		AA78CA39226F90880038FCAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78CA38226F90880038FCAE /* ViewController.swift */; };
 		AA78CA3C226F90880038FCAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA78CA3A226F90880038FCAE /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 		9097BE047D67803F91500602 /* Pods-RJD-POI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RJD-POI.release.xcconfig"; path = "Target Support Files/Pods-RJD-POI/Pods-RJD-POI.release.xcconfig"; sourceTree = "<group>"; };
 		9B15733C68D293311EADEC28 /* Pods-RJD-POITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RJD-POITests.release.xcconfig"; path = "Target Support Files/Pods-RJD-POITests/Pods-RJD-POITests.release.xcconfig"; sourceTree = "<group>"; };
 		AA5917A0229043B800E174DD /* StationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsViewController.swift; sourceTree = "<group>"; };
+		AA5917A222904B1300E174DD /* StationHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		AA5917A422904EAF00E174DD /* StationTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimeTableViewCell.swift; sourceTree = "<group>"; };
 		AA78CA33226F90880038FCAE /* RJD-POI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RJD-POI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA78CA36226F90880038FCAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA78CA38226F90880038FCAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 			children = (
 				AA848B4D228FEA0200B1CECA /* StopTableViewCell.swift */,
 				AA848B5B2290295400B1CECA /* TimelineTableViewCell.swift */,
+				AA5917A222904B1300E174DD /* StationHeaderTableViewCell.swift */,
+				AA5917A422904EAF00E174DD /* StationTimeTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -394,11 +400,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA5917A522904EAF00E174DD /* StationTimeTableViewCell.swift in Sources */,
 				AA5917A1229043B800E174DD /* StationDetailsViewController.swift in Sources */,
 				AA848B5A229026B600B1CECA /* RouteTimelineViewController.swift in Sources */,
 				AA848B53228FEA1000B1CECA /* SelectRouteViewController.swift in Sources */,
 				AA78CA39226F90880038FCAE /* ViewController.swift in Sources */,
 				AA848B50228FEA0300B1CECA /* InputWithTitle.swift in Sources */,
+				AA5917A322904B1300E174DD /* StationHeaderTableViewCell.swift in Sources */,
 				AA848B5C2290295400B1CECA /* TimelineTableViewCell.swift in Sources */,
 				AA848B58229003C200B1CECA /* SelectStationViewController.swift in Sources */,
 				AA848B56228FEA5600B1CECA /* APIManager.swift in Sources */,

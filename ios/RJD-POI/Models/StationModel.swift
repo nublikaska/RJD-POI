@@ -17,6 +17,7 @@ struct StationModel: Mappable {
     var stopTime: Int = 0
     var arrivalTime: String = ""
     var detailId: String = ""
+    var order: Int = 0
     
     init?(map: Map) { }
     
@@ -27,6 +28,7 @@ struct StationModel: Mappable {
         stopTime <- map["stopTime"]
         arrivalTime <- map["arrivalTime"]
         detailId <- map["detailId"]
+        order <- map["order"]
     }
 }
 

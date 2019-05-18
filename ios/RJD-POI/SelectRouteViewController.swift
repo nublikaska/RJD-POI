@@ -36,7 +36,7 @@ class SelectRouteViewController: UIViewController {
         title = "Поезд, города и дата"
         view.backgroundColor = .white
         
-        doneButton.backgroundColor = .green
+        doneButton.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         doneButton.setTitle("Всё готово", for: .normal)
         doneButton.layer.cornerRadius = 10
         doneButton.addTarget(self, action: #selector(viewRoute), for: .touchUpInside)
@@ -53,25 +53,29 @@ class SelectRouteViewController: UIViewController {
         departureView.inputTextField.isUserInteractionEnabled = false
         arrivalView.inputTextField.isUserInteractionEnabled = false
         
-        trainNumberView.inputTextField.rx.controlEvent([.editingChanged]).asObservable().subscribe({ [weak self] _ in
-            if let text = self?.trainNumberView.inputTextField.text {
-                self?.checkRouteWith(number: text)
-            }
-        }).disposed(by: bag)
+        trainNumberView.inputTextField.delegate = self
+        departureView.inputTextField.delegate = self
+        arrivalView.inputTextField.delegate = self
         
-        departureView.inputTextField.rx.controlEvent([.editingDidBegin]).asObservable().subscribe({ [weak self] _ in
-            let controller = SelectStationViewController(stations: self?.stations, start: true)
-            controller.delegate = self
-            self?.navigationController?.pushViewController(controller, animated: true)
-            self?.view.endEditing(true)
-        }).disposed(by: bag)
+//        trainNumberView.inputTextField.rx.controlEvent([.editingChanged]).asObservable().subscribe({ [weak self] _ in
+//            if let text = self?.trainNumberView.inputTextField.text {
+//                self?.checkRouteWith(number: text)
+//            }
+//        }).disposed(by: bag)
         
-        arrivalView.inputTextField.rx.controlEvent([.editingDidBegin]).asObservable().subscribe({ [weak self] _ in
-            let controller = SelectStationViewController(stations: self?.stations, start: false)
-            controller.delegate = self
-            self?.navigationController?.pushViewController(controller, animated: true)
-            self?.view.endEditing(true)
-        }).disposed(by: bag)
+//        departureView.inputTextField.rx.controlEvent([.editingDidBegin]).asObservable().subscribe({ [weak self] _ in
+//            let controller = SelectStationViewController(stations: self?.stations, start: true)
+//            controller.delegate = self
+//            self?.navigationController?.pushViewController(controller, animated: true)
+//            self?.resignKeyboard()
+//        }).disposed(by: bag)
+//
+//        arrivalView.inputTextField.rx.controlEvent([.editingDidBegin]).asObservable().subscribe({ [weak self] _ in
+//            let controller = SelectStationViewController(stations: self?.stations, start: false)
+//            controller.delegate = self
+//            self?.navigationController?.pushViewController(controller, animated: true)
+//            self?.resignKeyboard()
+//        }).disposed(by: bag)
         
         
         let api = APIManager()
@@ -117,6 +121,7 @@ class SelectRouteViewController: UIViewController {
     }
     
     func checkRouteWith(number: String) {
+        
         for route in allRoutes {
             print(route.number.uppercased())
             print(number.uppercased())
@@ -136,12 +141,29 @@ class SelectRouteViewController: UIViewController {
                     hud.dismiss(animated: true)
                     self?.departureView.inputTextField.isUserInteractionEnabled = true
                 }
-                
             }
         }
     }
     
+//    func resignKeyboard() {
+//        for view in view.subviews {
+//            view.resignFirstResponder()
+//            if view.subviews.count > 0 {
+//                for view in view.subviews {
+//                    view.resignFirstResponder()
+//                }
+//            }
+//        }
+//        view.endEditing(true)
+//    }
+    
     @objc func viewRoute() {
+        
+//        departureView.inputTextField.resignFirstResponder()
+//        arrivalView.inputTextField.resignFirstResponder()
+        
+        self.view.endEditing(true)
+        
         if let route = route, let stationStart = stationStart, let stationFinish = stationFinish {
             var route = route
             route.stations = stations
@@ -166,5 +188,32 @@ extension SelectRouteViewController: SelectStationProtocol {
     func stationFinishSelected(station: StationModel) {
         stationFinish = station
         arrivalView.inputTextField.text = stationFinish?.stopsName
+    }
+}
+
+extension SelectRouteViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let text: NSString = (textField.text ?? "") as NSString
+        let result = text.replacingCharacters(in: range, with: string)
+        
+        if textField == trainNumberView.inputTextField {
+            checkRouteWith(number: result)
+        }
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == departureView.inputTextField {
+            view.endEditing(true)
+            let controller = SelectStationViewController(stations: stations, start: true)
+            controller.delegate = self
+            navigationController?.pushViewController(controller, animated: true)
+
+        } else if textField == arrivalView.inputTextField {
+            view.endEditing(true)
+            let controller = SelectStationViewController(stations: stations, start: false)
+            controller.delegate = self
+            navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }

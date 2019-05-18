@@ -37,7 +37,7 @@ class InputWithTitle: UIView {
         titleLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .light)
         titleLabel.textColor = .lightGray
         inputTextField.font = UIFont.monospacedDigitSystemFont(ofSize: 18, weight: .semibold)
-        inputTextField.placeholder = "751А"
+        inputTextField.placeholder = "015E"
         bottomLine.backgroundColor = .lightGray
     }
     
