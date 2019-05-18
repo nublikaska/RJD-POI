@@ -3,13 +3,13 @@ package com.rzhd.poi.domain
 import com.rzhd.poi.data.prefs.SharedPrefs
 
 data class TripData(
-    val routeId: String,
-    val routeNumber: String,
-    val departureId: String?,
-    val departureName: String?,
-    val arrivalId: String?,
-    val arrivalName: String?,
-    val departureTime: String?
+        val routeId: String,
+        val routeNumber: String,
+        val departureId: String?,
+        val departureName: String?,
+        val arrivalId: String?,
+        val arrivalName: String?,
+        val departureTime: String?
 ) {
 
     val isValid: Boolean
@@ -39,13 +39,13 @@ var SharedPrefs.tripData: TripData?
     set(value) {
         if (value == null) {
             listOf(
-                ROUTE_ID_KEY,
-                ROUTE_NUMBER_KEY,
-                DEPARTURE_TIME_KEY,
-                DEPARTURE_NAME_KEY,
-                DEPARTURE_ID_KEY,
-                ARRIVAL_NAME_KEY,
-                ARRIVAL_ID_KEY
+                    ROUTE_ID_KEY,
+                    ROUTE_NUMBER_KEY,
+                    DEPARTURE_TIME_KEY,
+                    DEPARTURE_NAME_KEY,
+                    DEPARTURE_ID_KEY,
+                    ARRIVAL_NAME_KEY,
+                    ARRIVAL_ID_KEY
             ).forEach(::remove)
             return
         }

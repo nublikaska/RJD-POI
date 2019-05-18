@@ -23,17 +23,17 @@ class App : Application() {
             androidContext(this@App)
             androidLogger()
             modules(
-                authModule,
-                createTripModule,
-                selectStationModule,
-                routeInfoModule,
-                createdTripsModule,
+                    authModule,
+                    createTripModule,
+                    selectStationModule,
+                    routeInfoModule,
+                    createdTripsModule,
 
-                navigationModule,
+                    navigationModule,
 
-                dbModule,
+                    dbModule,
 
-                sharedPrefsModule
+                    sharedPrefsModule
             )
         }
     }

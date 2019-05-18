@@ -20,8 +20,8 @@ val dbModule = module {
 }
 
 private class RepositoryImpl(
-    private val firestore: FirebaseFirestore,
-    private val sharePrefs: SharedPrefs
+        private val firestore: FirebaseFirestore,
+        private val sharePrefs: SharedPrefs
 ) : Repository {
 
     private val routesCache = mutableListOf<Route>()
@@ -32,16 +32,16 @@ private class RepositoryImpl(
 
         val tripData = sharePrefs.tripData ?: return@withContext
         val tripDataMap = mapOf(
-            "routeId" to tripData.routeId,
-            "departureId" to tripData.departureId,
-            "arrivalId" to tripData.arrivalId,
-            "departureDate" to tripData.departureTime
+                "routeId" to tripData.routeId,
+                "departureId" to tripData.departureId,
+                "arrivalId" to tripData.arrivalId,
+                "departureDate" to tripData.departureTime
         )
         val task = firestore.collection("Users")
-            .document(currentUser.uid)
-            .collection("Trips")
-            .document()
-            .set(tripDataMap)
+                .document(currentUser.uid)
+                .collection("Trips")
+                .document()
+                .set(tripDataMap)
 
         Tasks.await(task)
         sharePrefs.tripData = null
@@ -50,11 +50,11 @@ private class RepositoryImpl(
     override suspend fun getUserTrip(routeId: String): UserTrip = withContext(IO) {
 
         val task = firestore
-            .collection("Users")
-            .document(currentUser.uid)
-            .collection("Trips")
-            .whereEqualTo("routeId", routeId)
-            .get()
+                .collection("Users")
+                .document(currentUser.uid)
+                .collection("Trips")
+                .whereEqualTo("routeId", routeId)
+                .get()
 
         val snapshot = Tasks.await(task).first()
         UserTrip(snapshot.id, snapshot.data)

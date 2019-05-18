@@ -20,12 +20,12 @@ val selectStationModule = module {
 }
 
 class SelectStationViewModel(
-    private val mode: Int,
-    private val routeId: String,
-    private val router: Router,
-    private val repository: Repository,
-    private val sharedPrefs: SharedPrefs,
-    context: Context
+        private val mode: Int,
+        private val routeId: String,
+        private val router: Router,
+        private val repository: Repository,
+        private val sharedPrefs: SharedPrefs,
+        context: Context
 ) : BaseViewModel() {
 
     val needShowLoading by notNullLiveData(false)
@@ -64,13 +64,13 @@ class SelectStationViewModel(
             val newModel = when (mode) {
 
                 SelectStationScreen.MODE_ARRIVAL -> sharedPrefs.tripData?.copy(
-                    arrivalName = name,
-                    arrivalId = id
+                        arrivalName = name,
+                        arrivalId = id
                 )
 
                 SelectStationScreen.MODE_DEPARTURE -> sharedPrefs.tripData?.copy(
-                    departureName = name,
-                    departureId = id
+                        departureName = name,
+                        departureId = id
                 )
 
                 else -> throw IllegalStateException("unsupported mode")
@@ -83,8 +83,8 @@ class SelectStationViewModel(
     private inner class Mapper : (Station) -> SimpleStationItemViewModel {
 
         override fun invoke(station: Station): SimpleStationItemViewModel = SimpleStationItemViewModel(
-            name = station.stopsName,
-            id = station.id
+                name = station.stopsName,
+                id = station.id
         ).apply { onClickLambda = ::onItemClicked }
     }
 }

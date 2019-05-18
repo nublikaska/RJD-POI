@@ -18,16 +18,16 @@ class MainActivity : AppCompatActivity() {
     private val navigator: Navigator = object : SupportAppNavigator(this, R.id.main_fragment_container) {
 
         override fun setupFragmentTransaction(
-            command: Command?,
-            currentFragment: Fragment?,
-            nextFragment: Fragment?,
-            fragmentTransaction: FragmentTransaction?
+                command: Command?,
+                currentFragment: Fragment?,
+                nextFragment: Fragment?,
+                fragmentTransaction: FragmentTransaction?
         ) {
             fragmentTransaction?.setCustomAnimations(
-                android.R.anim.slide_in_left,
-                android.R.anim.slide_out_right,
-                android.R.anim.fade_in,
-                android.R.anim.fade_out
+                    android.R.anim.slide_in_left,
+                    android.R.anim.slide_out_right,
+                    android.R.anim.fade_in,
+                    android.R.anim.fade_out
             )
         }
     }

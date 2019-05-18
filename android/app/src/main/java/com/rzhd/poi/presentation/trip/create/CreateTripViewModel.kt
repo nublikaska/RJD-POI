@@ -18,9 +18,9 @@ import kotlinx.coroutines.launch
 import ru.terrakok.cicerone.Router
 
 class CreateTripViewModel(
-    private val router: Router,
-    private val repository: Repository,
-    private val sharedPrefs: SharedPrefs
+        private val router: Router,
+        private val repository: Repository,
+        private val sharedPrefs: SharedPrefs
 ) : BaseViewModel() {
 
     val isButtonEnabled by notNullLiveData(false)
@@ -74,17 +74,17 @@ class CreateTripViewModel(
     }
 
     fun onDepartureClick() = router.navigateTo(
-        SelectStationScreen(
-            mode = SelectStationScreen.MODE_DEPARTURE,
-            routeId = sharedPrefs.tripData!!.routeId
-        )
+            SelectStationScreen(
+                    mode = SelectStationScreen.MODE_DEPARTURE,
+                    routeId = sharedPrefs.tripData!!.routeId
+            )
     )
 
     fun onArrivalClick() = router.navigateTo(
-        SelectStationScreen(
-            mode = SelectStationScreen.MODE_ARRIVAL,
-            routeId = sharedPrefs.tripData!!.routeId
-        )
+            SelectStationScreen(
+                    mode = SelectStationScreen.MODE_ARRIVAL,
+                    routeId = sharedPrefs.tripData!!.routeId
+            )
     )
 
     fun onDepartureTimeClick() {
@@ -126,13 +126,13 @@ class CreateTripViewModel(
                 val dep = stations.first()
                 val arr = stations.last()
                 sharedPrefs.tripData = TripData(
-                    routeId = route.id,
-                    routeNumber = route.number,
-                    departureId = dep.id,
-                    departureName = dep.stopsName,
-                    arrivalId = arr.id,
-                    arrivalName = arr.stopsName,
-                    departureTime = null
+                        routeId = route.id,
+                        routeNumber = route.number,
+                        departureId = dep.id,
+                        departureName = dep.stopsName,
+                        arrivalId = arr.id,
+                        arrivalName = arr.stopsName,
+                        departureTime = null
                 )
                 departureTime.value = ""
                 departureName.value = dep.stopsName

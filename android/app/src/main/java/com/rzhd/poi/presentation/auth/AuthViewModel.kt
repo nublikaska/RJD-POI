@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 import ru.terrakok.cicerone.Router
 
 class AuthViewModel(
-    private val router: Router,
-    private val repository: Repository
+        private val router: Router,
+        private val repository: Repository
 ) : BaseViewModel() {
 
     val needShowLoading by notNullLiveData(false)

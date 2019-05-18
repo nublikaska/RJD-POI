@@ -12,16 +12,16 @@ val sharedPrefsModule = module {
 
 private class SharedPrefsImpl(
 
-    context: Context,
-    sharedPrefsKey: String? = context.getString(R.string.app_key)
+        context: Context,
+        sharedPrefsKey: String? = context.getString(R.string.app_key)
 
 ) : SharedPrefs {
 
     private val sharedPrefs: SharedPreferences by lazy {
 
         context.getSharedPreferences(
-            sharedPrefsKey,
-            Context.MODE_PRIVATE
+                sharedPrefsKey,
+                Context.MODE_PRIVATE
         )
     }
 

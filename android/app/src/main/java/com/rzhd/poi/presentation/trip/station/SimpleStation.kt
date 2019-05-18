@@ -6,8 +6,8 @@ import com.rzhd.poi.core.list.DiffListItemModel
 import com.rzhd.poi.core.list.SingleItemLayoutDiffListAdapter
 
 data class SimpleStationItemViewModel(
-    val name: String,
-    val id: String
+        val name: String,
+        val id: String
 ) : DiffListItemModel {
 
     lateinit var onClickLambda: (name: String, id: String) -> Unit
@@ -18,6 +18,6 @@ data class SimpleStationItemViewModel(
 }
 
 class SimpleStationAdapter : SingleItemLayoutDiffListAdapter<SimpleStationItemViewModel>(
-    itemLayoutId = R.layout.li_station_select,
-    dataBindingVariable = BR.vmSimpleStation
+        itemLayoutId = R.layout.li_station_select,
+        dataBindingVariable = BR.vmSimpleStation
 )
