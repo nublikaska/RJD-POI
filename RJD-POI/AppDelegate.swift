@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        let viewController = ViewController()
+        let viewController = SelectRouteViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         
         self.window = UIWindow(frame: UIScreen.main.bounds)

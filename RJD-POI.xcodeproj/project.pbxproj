@@ -16,6 +16,15 @@
 		AA78CA44226F908A0038FCAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA78CA42226F908A0038FCAE /* LaunchScreen.storyboard */; };
 		AA78CA4F226F908B0038FCAE /* RJD_POITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78CA4E226F908B0038FCAE /* RJD_POITests.swift */; };
 		AA848B40228C8CEE00B1CECA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA848B3F228C8CEE00B1CECA /* GoogleService-Info.plist */; };
+		AA848B4E228FEA0300B1CECA /* RoutesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA848B48228FEA0200B1CECA /* RoutesModel.swift */; };
+		AA848B4F228FEA0300B1CECA /* StationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA848B49228FEA0200B1CECA /* StationModel.swift */; };
+		AA848B50228FEA0300B1CECA /* InputWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA848B4B228FEA0200B1CECA /* InputWithTitle.swift */; };
+		AA848B51228FEA0300B1CECA /* StopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA848B4D228FEA0200B1CECA /* StopTableViewCell.swift */; };
+		AA848B53228FEA1000B1CECA /* SelectRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA848B52228FEA1000B1CECA /* SelectRouteViewController.swift */; };
+		AA848B56228FEA5600B1CECA /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA848B55228FEA5600B1CECA /* APIManager.swift */; };
+		AA848B58229003C200B1CECA /* SelectStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA848B57229003C200B1CECA /* SelectStationViewController.swift */; };
+		AA848B5A229026B600B1CECA /* RouteTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA848B59229026B600B1CECA /* RouteTimelineViewController.swift */; };
+		AA848B5C2290295400B1CECA /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA848B5B2290295400B1CECA /* TimelineTableViewCell.swift */; };
 		BDE78E81BB1C75CCAA16A2FF /* Pods_RJD_POI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E40AFBCBB308D1972EB5955 /* Pods_RJD_POI.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +56,15 @@
 		AA78CA4E226F908B0038FCAE /* RJD_POITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RJD_POITests.swift; sourceTree = "<group>"; };
 		AA78CA50226F908B0038FCAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA848B3F228C8CEE00B1CECA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AA848B48228FEA0200B1CECA /* RoutesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesModel.swift; sourceTree = "<group>"; };
+		AA848B49228FEA0200B1CECA /* StationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationModel.swift; sourceTree = "<group>"; };
+		AA848B4B228FEA0200B1CECA /* InputWithTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputWithTitle.swift; sourceTree = "<group>"; };
+		AA848B4D228FEA0200B1CECA /* StopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopTableViewCell.swift; sourceTree = "<group>"; };
+		AA848B52228FEA1000B1CECA /* SelectRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectRouteViewController.swift; sourceTree = "<group>"; };
+		AA848B55228FEA5600B1CECA /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		AA848B57229003C200B1CECA /* SelectStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStationViewController.swift; sourceTree = "<group>"; };
+		AA848B59229026B600B1CECA /* RouteTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTimelineViewController.swift; sourceTree = "<group>"; };
+		AA848B5B2290295400B1CECA /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		BFDEE88B5C9DF3DB01A3F40B /* Pods-RJD-POI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RJD-POI.debug.xcconfig"; path = "Target Support Files/Pods-RJD-POI/Pods-RJD-POI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +120,13 @@
 		AA78CA35226F90880038FCAE /* RJD-POI */ = {
 			isa = PBXGroup;
 			children = (
+				AA848B54228FEA3100B1CECA /* API */,
+				AA848B47228FEA0200B1CECA /* Models */,
+				AA848B4A228FEA0200B1CECA /* UIkit */,
 				AA78CA36226F90880038FCAE /* AppDelegate.swift */,
+				AA848B52228FEA1000B1CECA /* SelectRouteViewController.swift */,
+				AA848B57229003C200B1CECA /* SelectStationViewController.swift */,
+				AA848B59229026B600B1CECA /* RouteTimelineViewController.swift */,
 				AA78CA38226F90880038FCAE /* ViewController.swift */,
 				AA78CA3A226F90880038FCAE /* Main.storyboard */,
 				AA78CA40226F908A0038FCAE /* Assets.xcassets */,
@@ -121,6 +145,41 @@
 				AA78CA50226F908B0038FCAE /* Info.plist */,
 			);
 			path = "RJD-POITests";
+			sourceTree = "<group>";
+		};
+		AA848B47228FEA0200B1CECA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA848B48228FEA0200B1CECA /* RoutesModel.swift */,
+				AA848B49228FEA0200B1CECA /* StationModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA848B4A228FEA0200B1CECA /* UIkit */ = {
+			isa = PBXGroup;
+			children = (
+				AA848B4B228FEA0200B1CECA /* InputWithTitle.swift */,
+				AA848B4C228FEA0200B1CECA /* TableViewCells */,
+			);
+			path = UIkit;
+			sourceTree = "<group>";
+		};
+		AA848B4C228FEA0200B1CECA /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				AA848B4D228FEA0200B1CECA /* StopTableViewCell.swift */,
+				AA848B5B2290295400B1CECA /* TimelineTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		AA848B54228FEA3100B1CECA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AA848B55228FEA5600B1CECA /* APIManager.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		F7B243EB9CD5A7BB5F4ED33A /* Pods */ = {
@@ -268,6 +327,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-RJD-POI/Pods-RJD-POI-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -285,6 +345,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -330,9 +391,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA848B5A229026B600B1CECA /* RouteTimelineViewController.swift in Sources */,
+				AA848B53228FEA1000B1CECA /* SelectRouteViewController.swift in Sources */,
 				AA78CA39226F90880038FCAE /* ViewController.swift in Sources */,
+				AA848B50228FEA0300B1CECA /* InputWithTitle.swift in Sources */,
+				AA848B5C2290295400B1CECA /* TimelineTableViewCell.swift in Sources */,
+				AA848B58229003C200B1CECA /* SelectStationViewController.swift in Sources */,
+				AA848B56228FEA5600B1CECA /* APIManager.swift in Sources */,
+				AA848B4F228FEA0300B1CECA /* StationModel.swift in Sources */,
 				AA78CA3F226F90880038FCAE /* RJD_POI.xcdatamodeld in Sources */,
+				AA848B51228FEA0300B1CECA /* StopTableViewCell.swift in Sources */,
 				AA78CA37226F90880038FCAE /* AppDelegate.swift in Sources */,
+				AA848B4E228FEA0300B1CECA /* RoutesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

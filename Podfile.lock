@@ -85,6 +85,7 @@ PODS:
     - gRPC-Core/Interface (= 1.19.0)
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.19.0)
+  - JGProgressHUD (2.0.3)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -104,6 +105,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
+  - JGProgressHUD
   - ObjectMapper
   - RxCocoa
   - RxSwift
@@ -122,6 +124,7 @@ SPEC REPOS:
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
+    - JGProgressHUD
     - leveldb-library
     - nanopb
     - ObjectMapper
@@ -143,6 +146,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 84df567c76ca84f67b7bb40e769fdd4acc746a10
   "gRPC-C++": 98be881723177d8c4faf5fdffacb582c7b4971a2
   gRPC-Core: bd9472c8daa2e414b9f8038ba667bf56ce0e02b8
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
@@ -152,6 +156,6 @@ SPEC CHECKSUMS:
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: efbf7c8cd89ce70f6c3b09c8fce469888143a41f
+PODFILE CHECKSUM: fb93c00ba75393a5eac306f311259d082d1bf6df
 
 COCOAPODS: 1.6.1

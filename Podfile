@@ -12,6 +12,7 @@ target 'RJD-POI' do
   pod 'RxCocoa'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'JGProgressHUD'
 
   target 'RJD-POITests' do
     inherit! :search_paths
