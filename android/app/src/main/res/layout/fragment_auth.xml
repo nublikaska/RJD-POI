@@ -82,6 +82,8 @@
                     android:paddingTop="15dp"
                     android:paddingBottom="15dp"
                     android:onClick="@{() -> vmAuth.onLoginClick()}"
+                    android:visibility="gone"
+                    app:isVisible="@{vmAuth.needShowLoginButton}"
                     android:layout_marginBottom="15dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"

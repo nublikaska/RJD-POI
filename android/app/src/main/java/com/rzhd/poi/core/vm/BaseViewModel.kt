@@ -1,5 +1,6 @@
 package com.rzhd.poi.core.vm
 
+import android.util.Log
 import androidx.annotation.CallSuper
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LiveData
@@ -20,13 +21,14 @@ abstract class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
     val events: LiveData<ViewEvent>
         get() = _events
 
-    private val exceptionHandler: CoroutineExceptionHandler = CoroutineExceptionHandler { _, _ -> }
+    private val exceptionHandler: CoroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+
+        Log.e(this::class.java.simpleName, "Exception:", exception)
+    }
 
     private val _events = BufferLiveData<ViewEvent>()
 
     private val supervisorJob = SupervisorJob()
-
-    open fun onBackPressed() = Unit
 
     protected fun postViewEvents(vararg events: ViewEvent) = events.forEach(_events::setValue)
 

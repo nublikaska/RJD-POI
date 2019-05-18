@@ -4,8 +4,8 @@
     <data>
 
         <variable
-                name="vmMain"
-                type="com.rzhd.poi.presentation.main.MainViewModel"/>
+                name="vmCreateTrip"
+                type="com.rzhd.poi.presentation.trip.create.CreateTripViewModel"/>
     </data>
 
     <FrameLayout

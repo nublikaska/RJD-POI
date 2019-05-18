@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.rzhd.poi.R
-import com.rzhd.poi.domain.isLoggedIn
 import org.koin.android.ext.android.inject
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.Screen
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import ru.terrakok.cicerone.commands.Command
 import ru.terrakok.cicerone.commands.Replace
@@ -38,12 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val screen: Screen = when {
-            isLoggedIn -> MainScreen()
-            else -> AuthScreen()
-        }
-
-        navigator.applyCommands(arrayOf(Replace(screen)))
+        navigator.applyCommands(arrayOf(Replace(AuthScreen())))
     }
 
     override fun onResumeFragments() {
