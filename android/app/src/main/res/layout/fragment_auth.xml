@@ -54,6 +54,16 @@
                     android:textColor="@android:color/white"
                     android:text="@string/auth_description"/>
 
+            <ProgressBar
+                    android:id="@+id/fragment_auth_spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
             <TextView
                     android:id="@+id/fragment_auth_login"
                     android:layout_width="match_parent"
@@ -61,7 +71,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:textColor="#F5A623"
+                    android:textColor="@color/colorAccent"
                     android:textSize="17sp"
                     android:clickable="true"
                     android:focusable="true"

@@ -1,6 +1,5 @@
-package com.rzhd.poi.presentation.auth.di
+package com.rzhd.poi.presentation.auth
 
-import com.rzhd.poi.presentation.auth.AuthViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

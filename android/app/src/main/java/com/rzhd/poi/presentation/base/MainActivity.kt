@@ -1,4 +1,4 @@
-package com.rzhd.poi.presentation
+package com.rzhd.poi.presentation.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

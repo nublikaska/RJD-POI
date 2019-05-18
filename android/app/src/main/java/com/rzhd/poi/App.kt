@@ -1,9 +1,9 @@
 package com.rzhd.poi
 
 import android.app.Application
-import com.rzhd.poi.presentation.auth.di.authModule
-import com.rzhd.poi.presentation.main.di.mainModule
-import com.rzhd.poi.presentation.navigationModule
+import com.rzhd.poi.presentation.auth.authModule
+import com.rzhd.poi.presentation.base.navigationModule
+import com.rzhd.poi.presentation.main.mainModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

@@ -1,4 +1,4 @@
-package com.rzhd.poi.presentation
+package com.rzhd.poi.presentation.base
 
 import androidx.fragment.app.Fragment
 import com.rzhd.poi.presentation.auth.AuthFragment

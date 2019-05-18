@@ -1,4 +1,4 @@
-package com.rzhd.poi.presentation
+package com.rzhd.poi.presentation.base
 
 import org.koin.dsl.module
 import ru.terrakok.cicerone.Cicerone
