@@ -72,6 +72,9 @@ extension StationDetailsViewController: UITableViewDataSource, UITableViewDelega
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "timeCellId", for: indexPath) as! StationTimeTableViewCell
+            cell.departureLabel.text = "123"
+            cell.stopLabel.text = "\(details.stopTime) мин."
+            cell.arrivalLabel.text = details.arrival
             return cell
         default:
             return UITableViewCell()
@@ -80,5 +83,9 @@ extension StationDetailsViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

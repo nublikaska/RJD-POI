@@ -52,27 +52,39 @@ class StationTimeTableViewCell: UITableViewCell {
     }
     
     func configureSubviews() {
-        arrivalTitleLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .medium)
+        arrivalTitleLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .medium)
         arrivalTitleLabel.textColor = .lightGray
         
-        stopTitleLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .medium)
+        stopTitleLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .medium)
         stopTitleLabel.textColor = .lightGray
         
-        departureTitleLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .medium)
+        departureTitleLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .medium)
         departureTitleLabel.textColor = .lightGray
         
-        arrivalLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .bold)
+        arrivalLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .bold)
         arrivalLabel.textColor = .black
         
-        stopLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .bold)
+        stopLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .bold)
         stopLabel.textColor = .black
         
-        departureLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 14, weight: .bold)
+        departureLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .bold)
         departureLabel.textColor = .black
         
         horizontalLine.backgroundColor = .lightGray
         verticalLineLeft.backgroundColor = .lightGray
         verticalLineRight.backgroundColor = .lightGray
+        
+        arrivalTitleLabel.text = "Прибытие"
+        stopTitleLabel.text = "Стоянка"
+        departureTitleLabel.text = "Отправление"
+        
+        arrivalTitleLabel.textAlignment = .left
+        stopTitleLabel.textAlignment = .center
+        departureTitleLabel.textAlignment = .right
+        
+        arrivalLabel.textAlignment = .left
+        stopLabel.textAlignment = .center
+        departureLabel.textAlignment = .right
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -85,40 +97,61 @@ class StationTimeTableViewCell: UITableViewCell {
         horizontalLine.snp.makeConstraints { maker in
             maker.left.top.equalToSuperview().offset(10)
             maker.right.equalToSuperview().offset(-10)
-            maker.height.equalTo(6)
+            maker.height.equalTo(4)
         }
         
         verticalLineLeft.snp.makeConstraints { maker in
             maker.left.equalToSuperview().offset(10)
-            maker.width.equalTo(6)
+            maker.width.equalTo(4)
             maker.height.equalTo(20)
         }
         
         verticalLineRight.snp.makeConstraints { maker in
             maker.right.equalToSuperview().offset(-10)
-            maker.width.equalTo(6)
+            maker.width.equalTo(4)
             maker.height.equalTo(20)
         }
         
-//        arr.snp.makeConstraints { maker in
-//            maker.left.equalToSuperview().offset(20)
-//            maker.right.equalToSuperview().offset(-20)
-//            maker.top.equalToSuperview().offset(10)
-//            maker.bottom.equalTo(subtitleLabel.snp.top).offset(10)
-//        }
+        arrivalTitleLabel.snp.makeConstraints { maker in
+            maker.height.equalTo(30)
+            maker.left.equalToSuperview().offset(20)
+            maker.width.equalTo(100)
+            maker.top.equalTo(horizontalLine.snp.bottom).offset(10)
+        }
+        
+        stopTitleLabel.snp.makeConstraints { maker in
+            maker.height.equalTo(30)
+            maker.centerX.equalToSuperview()
+            maker.width.equalTo(100)
+            maker.top.equalTo(horizontalLine.snp.bottom).offset(10)
+        }
+        
+        departureTitleLabel.snp.makeConstraints { maker in
+            maker.height.equalTo(30)
+            maker.right.equalToSuperview().offset(-20)
+            maker.width.equalTo(100)
+            maker.top.equalTo(horizontalLine.snp.bottom).offset(10)
+        }
 //
-//        subtitleLabel.snp.makeConstraints { maker in
-//            maker.left.equalToSuperview().offset(20)
-//            maker.right.equalToSuperview().offset(-20)
-//            maker.top.equalTo(titleLabel.snp.bottom).offset(10)
-//            maker.bottom.equalTo(detailsLabel.snp.top).offset(10)
-//        }
-//
-//        detailsLabel.snp.makeConstraints { maker in
-//            maker.left.equalToSuperview().offset(20)
-//            maker.right.equalToSuperview().offset(-20)
-//            maker.top.equalTo(subtitleLabel.snp.bottom).offset(10)
-//            maker.bottom.equalToSuperview().offset(-10)
-//        }
+        arrivalLabel.snp.makeConstraints { maker in
+            maker.left.equalToSuperview().offset(20)
+            maker.width.equalTo(100)
+            maker.top.equalTo(arrivalTitleLabel.snp.bottom).offset(10)
+            maker.bottom.equalToSuperview().offset(-10)
+        }
+
+        stopLabel.snp.makeConstraints { maker in
+            maker.centerX.equalToSuperview()
+            maker.width.equalTo(100)
+            maker.top.equalTo(stopTitleLabel.snp.bottom).offset(10)
+            maker.bottom.equalToSuperview().offset(-10)
+        }
+
+        departureLabel.snp.makeConstraints { maker in
+            maker.right.equalToSuperview().offset(-20)
+            maker.width.equalTo(100)
+            maker.top.equalTo(departureTitleLabel.snp.bottom).offset(10)
+            maker.bottom.equalToSuperview().offset(-10)
+        }
     }
 }

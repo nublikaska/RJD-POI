@@ -60,6 +60,11 @@ class SelectStationViewController: UIViewController {
         super.viewWillAppear(animated)
         self.view.endEditing(true)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        view.endEditing(true)
+    }
 }
 
 extension SelectStationViewController: UITableViewDelegate, UITableViewDataSource {

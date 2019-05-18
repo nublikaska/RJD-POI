@@ -98,6 +98,7 @@ extension RouteTimelineViewController: UITableViewDelegate, UITableViewDataSourc
                 detailsModel.stationName = station.stopsName
                 detailsModel.areaName = station.areaName
                 detailsModel.stopTime = station.stopTime
+                detailsModel.arrival = station.arrivalTime
                 
                 let controller = StationDetailsViewController(details: detailsModel)
                 self?.navigationController?.pushViewController(controller, animated: true)

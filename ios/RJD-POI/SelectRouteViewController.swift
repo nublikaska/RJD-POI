@@ -140,6 +140,8 @@ class SelectRouteViewController: UIViewController {
                     self?.stations = stations
                     hud.dismiss(animated: true)
                     self?.departureView.inputTextField.isUserInteractionEnabled = true
+                    
+                    self?.trainNumberView.inputTextField.resignFirstResponder()
                 }
             }
         }
@@ -204,7 +206,8 @@ extension SelectRouteViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == departureView.inputTextField {
-            view.endEditing(true)
+//            view.endEditing(true)
+            textField.resignFirstResponder()
             let controller = SelectStationViewController(stations: stations, start: true)
             controller.delegate = self
             navigationController?.pushViewController(controller, animated: true)
