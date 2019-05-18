@@ -5,7 +5,7 @@ import com.firebase.ui.auth.AuthUI
 import com.rzhd.poi.domain.AUTH_REQ_CODE
 import com.rzhd.poi.domain.authProviders
 
-class ViewEventStartAuth : ViewEvent {
+object ViewEventStartAuth : ViewEvent {
 
     override fun execute(fragment: Fragment) {
 
