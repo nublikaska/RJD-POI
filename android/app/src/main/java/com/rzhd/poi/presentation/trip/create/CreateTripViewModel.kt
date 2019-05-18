@@ -70,7 +70,10 @@ class CreateTripViewModel(
             savedTripData?.let { tripData ->
 
                 currentTripData = tripData
-                routeCode.value = repository.getRoutes().find { it.id == savedTripData.routeId }!!.number
+                routeCode.value = tripData.routeNumber
+                tripData.arrivalName?.let(arrivalName::setValue)
+                tripData.departureName?.let(departureName::setValue)
+                tripData.departureTime?.let(departureTime::setValue)
             }
         }
     }
@@ -110,7 +113,7 @@ class CreateTripViewModel(
 
     private fun findRouteByCode(code: String) {
 
-        if (code.isBlank()) return
+        if (code.isBlank() || code == sharedPrefs.tripData?.routeNumber) return
         searchJob?.cancel()
         searchJob = launch {
             repository.getRoutes().find { it.number == code }?.let { route ->
