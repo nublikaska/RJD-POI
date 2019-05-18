@@ -5,9 +5,10 @@
     <string name="auth_description">Путешествуйте по России на позде\nи узнавайте где и какие места\nвы проезжаете</string>
     <string name="auth_login">Войти</string>
     <string name="create_trip_toolbar_title">Поезда, города и дата</string>
-    <string name="train_number_hint">Номер поезда</string>
+    <string name="train_number">Номер поезда</string>
     <string name="departure_point">Пункт отправления</string>
     <string name="arrival_point">Пункт назначения</string>
     <string name="departure_date">Дата выезда</string>
     <string name="all_done">Все готово</string>
+    <string name="train_number_hint">015E</string>
 </resources>

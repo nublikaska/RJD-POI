@@ -7,7 +7,8 @@ import com.rzhd.poi.data.UserTrip
 
 interface Repository {
 
-    suspend fun createUserTrip(routeId: String, departureDate: String)
+    suspend fun createUserTrip()
+    suspend fun getUserTrip(routeId: String): UserTrip
     suspend fun getUserTrips(): List<UserTrip>
     suspend fun getRoutes(): List<Route>
     suspend fun getStationsForRoute(route: Route): List<Station>

@@ -3,6 +3,7 @@ package com.rzhd.poi.presentation.base
 import androidx.fragment.app.Fragment
 import com.rzhd.poi.presentation.auth.AuthFragment
 import com.rzhd.poi.presentation.trip.create.CreateTripFragment
+import com.rzhd.poi.presentation.trip.info.RouteInfoFragment
 import com.rzhd.poi.presentation.trip.station.SelectStationFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
@@ -26,4 +27,9 @@ class SelectStationScreen(private val mode: Int, private val routeId: String) : 
     }
 
     override fun getFragment(): Fragment = SelectStationFragment.getInstance(mode, routeId)
+}
+
+class RouteInfoScreen(private val routeId: String) : SupportAppScreen() {
+
+    override fun getFragment(): Fragment = RouteInfoFragment.getInstance(routeId)
 }

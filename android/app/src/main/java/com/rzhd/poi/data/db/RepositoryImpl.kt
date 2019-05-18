@@ -6,7 +6,9 @@ import com.rzhd.poi.data.Route
 import com.rzhd.poi.data.Station
 import com.rzhd.poi.data.StationDetailed
 import com.rzhd.poi.data.UserTrip
+import com.rzhd.poi.data.prefs.SharedPrefs
 import com.rzhd.poi.domain.currentUser
+import com.rzhd.poi.domain.tripData
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 import org.koin.dsl.module
@@ -14,25 +16,48 @@ import org.koin.dsl.module
 val dbModule = module {
 
     single { FirebaseFirestore.getInstance() }
-    single<Repository> { RepositoryImpl(get()) }
+    single<Repository> { RepositoryImpl(get(), get()) }
 }
 
-private class RepositoryImpl(private val firestore: FirebaseFirestore) : Repository {
+private class RepositoryImpl(
+    private val firestore: FirebaseFirestore,
+    private val sharePrefs: SharedPrefs
+) : Repository {
 
     private val routesCache = mutableListOf<Route>()
     private val stationsCache = mutableMapOf<String, List<Station>>()
     private val stationDetailedCache = mutableMapOf<String, StationDetailed>()
 
-    override suspend fun createUserTrip(routeId: String, departureDate: String) = withContext(IO) {
+    override suspend fun createUserTrip() = withContext(IO) {
 
+        val tripData = sharePrefs.tripData ?: return@withContext
+        val tripDataMap = mapOf(
+            "routeId" to tripData.routeId,
+            "departureId" to tripData.departureId,
+            "arrivalId" to tripData.arrivalId,
+            "departureDate" to tripData.departureTime
+        )
         val task = firestore.collection("Users")
             .document(currentUser.uid)
             .collection("Trips")
             .document()
-            .set(mapOf("routeId" to routeId, "departureDate" to departureDate))
+            .set(tripDataMap)
 
         Tasks.await(task)
-        Unit
+        sharePrefs.tripData = null
+    }
+
+    override suspend fun getUserTrip(routeId: String): UserTrip = withContext(IO) {
+
+        val task = firestore
+            .collection("Users")
+            .document(currentUser.uid)
+            .collection("Trips")
+            .whereEqualTo("routeId", routeId)
+            .get()
+
+        val snapshot = Tasks.await(task).first()
+        UserTrip(snapshot.id, snapshot.data)
     }
 
     override suspend fun getUserTrips(): List<UserTrip> = withContext(IO) {

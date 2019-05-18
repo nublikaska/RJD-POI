@@ -14,6 +14,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+        <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:isVisible="@{vmCreateTrip.needShowLoading}"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:indeterminate="true"/>
+
         <TextView
                 android:id="@+id/fragment_create_trip_toolbar"
                 android:layout_width="match_parent"
@@ -24,13 +32,6 @@
                 android:minHeight="44dp"
                 android:gravity="center"
                 android:text="@string/create_trip_toolbar_title"/>
-
-        <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:isVisible="@{vmCreateTrip.needShowLoading}"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:indeterminate="true"/>
 
         <LinearLayout
                 android:layout_marginTop="32dp"
@@ -58,7 +59,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="13sp"
                         android:fontFamily="@font/cera_regular"
-                        android:text="@string/train_number_hint"/>
+                        android:text="@string/train_number"/>
 
                 <androidx.appcompat.widget.AppCompatEditText
                         android:layout_width="match_parent"
@@ -67,6 +68,7 @@
                         android:minHeight="35dp"
                         android:fontFamily="@font/cera_medium"
                         android:singleLine="true"
+                        android:hint="@string/train_number_hint"
                         android:imeOptions="actionDone"
                         android:background="@drawable/input_bg"
                         android:text="@={vmCreateTrip.routeCode}"

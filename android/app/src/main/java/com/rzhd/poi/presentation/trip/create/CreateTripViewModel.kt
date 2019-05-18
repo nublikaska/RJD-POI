@@ -10,6 +10,7 @@ import com.rzhd.poi.data.db.Repository
 import com.rzhd.poi.data.prefs.SharedPrefs
 import com.rzhd.poi.domain.TripData
 import com.rzhd.poi.domain.tripData
+import com.rzhd.poi.presentation.base.RouteInfoScreen
 import com.rzhd.poi.presentation.base.SelectStationScreen
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
@@ -37,23 +38,18 @@ class CreateTripViewModel(
     }
 
     private var searchJob: Job? = null
-    private var currentTripData: TripData? = null
 
     init {
 
         launch {
 
             needShowLoading.value = true
-            val routes = repository.getRoutes()
+            repository.getRoutes()
             needShowLoading.value = false
             needShowFields.value = true
 
             val savedTripData = sharedPrefs.tripData
-            savedTripData?.let { tripData ->
-
-                currentTripData = tripData
-                routeCode.value = routes.find { it.id == savedTripData.routeId }!!.number
-            }
+            savedTripData?.let { tripData -> routeCode.value = tripData.routeNumber }
         }
     }
 
@@ -69,7 +65,6 @@ class CreateTripViewModel(
             val savedTripData = sharedPrefs.tripData
             savedTripData?.let { tripData ->
 
-                currentTripData = tripData
                 routeCode.value = tripData.routeNumber
                 tripData.arrivalName?.let(arrivalName::setValue)
                 tripData.departureName?.let(departureName::setValue)
@@ -104,6 +99,14 @@ class CreateTripViewModel(
 
     fun onCreateClick() {
 
+        launch {
+
+            val routeId = sharedPrefs.tripData?.routeId ?: return@launch
+            needShowLoading.value = true
+            repository.createUserTrip()
+            needShowLoading.value = false
+            router.navigateTo(RouteInfoScreen(routeId))
+        }
     }
 
     private fun checkButtonEnabled() {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="vmSimpleStation"
+                type="com.rzhd.poi.presentation.trip.station.SimpleStationItemViewModel"/>
+    </data>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:text="@{vmSimpleStation.name}"
+            android:padding="20dp"
+            android:textSize="20sp"
+            android:fontFamily="@font/cera_medium"
+            android:textColor="#000"
+            android:onClick="@{() -> vmSimpleStation.onClick()}"
+            tools:text="Москва Пасс"/>
+</layout>
