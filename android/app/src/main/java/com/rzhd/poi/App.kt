@@ -1,6 +1,7 @@
 package com.rzhd.poi
 
 import android.app.Application
+import com.rzhd.poi.data.db.dbModule
 import com.rzhd.poi.presentation.auth.authModule
 import com.rzhd.poi.presentation.base.navigationModule
 import com.rzhd.poi.presentation.main.mainModule
@@ -21,7 +22,9 @@ class App : Application() {
                 authModule,
                 mainModule,
 
-                navigationModule
+                navigationModule,
+
+                dbModule
             )
         }
     }
