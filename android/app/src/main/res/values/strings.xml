@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RZHD POI</string>
+    <string name="app_title">Gogotrain</string>
+    <string name="auth_description">Путешествуйте по России на позде\nи узнавайте где и какие места\nвы проезжаете
+    </string>
+    <string name="auth_login">Войти</string>
 </resources>
