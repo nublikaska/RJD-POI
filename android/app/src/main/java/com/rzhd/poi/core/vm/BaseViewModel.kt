@@ -2,9 +2,7 @@ package com.rzhd.poi.core.vm
 
 import android.util.Log
 import androidx.annotation.CallSuper
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.rzhd.poi.core.event.ViewEvent
 import com.rzhd.poi.core.lifecycle.BufferLiveData
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -13,7 +11,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
+abstract class BaseViewModel : ViewModel(), LifecycleObserver, LifecycleOwner, CoroutineScope {
+
+    private val lifecycleRegistry by lazy { LifecycleRegistry(this) }
 
     final override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + supervisorJob + exceptionHandler
@@ -21,7 +21,12 @@ abstract class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
     val events: LiveData<ViewEvent>
         get() = _events
 
-    private val exceptionHandler: CoroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
+    init {
+
+        lifecycleRegistry.currentState = Lifecycle.State.STARTED
+    }
+
+    protected open val exceptionHandler: CoroutineExceptionHandler = CoroutineExceptionHandler { _, exception ->
 
         Log.e(this::class.java.simpleName, "Exception:", exception)
     }
@@ -32,9 +37,12 @@ abstract class BaseViewModel : ViewModel(), LifecycleObserver, CoroutineScope {
 
     protected fun postViewEvents(vararg events: ViewEvent) = events.forEach(_events::setValue)
 
+    final override fun getLifecycle(): Lifecycle = lifecycleRegistry
+
     @CallSuper
     override fun onCleared() {
         super.onCleared()
+        lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
         supervisorJob.cancel()
     }
 }

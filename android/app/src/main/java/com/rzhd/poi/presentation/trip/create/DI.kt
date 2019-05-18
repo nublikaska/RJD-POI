@@ -5,5 +5,5 @@ import org.koin.dsl.module
 
 val createTripModule = module {
 
-    viewModel { CreateTripViewModel(get(), get()) }
+    viewModel { CreateTripViewModel(get(), get(), get()) }
 }

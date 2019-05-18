@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+        <variable
+                name="vmSelectStation"
+                type="com.rzhd.poi.presentation.trip.station.SelectStationViewModel"/>
+    </data>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/fragment_create_trip_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:fontFamily="@font/cera_medium"
+                android:textColor="#000"
+                android:minHeight="44dp"
+                android:gravity="center"
+                android:text="@{vmSelectStation.toolbarTitle}"/>
+    </LinearLayout>
+</layout>

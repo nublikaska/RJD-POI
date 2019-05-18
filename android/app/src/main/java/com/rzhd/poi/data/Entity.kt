@@ -16,6 +16,7 @@ class Station(val id: String, map: Map<String, Any>) {
     val areaName: String by map
     val arrivalTime: String by map
     val detailId: String by map
+    val order: Int by map
     val stopTime: Int by map
     val stopsName: String by map
 }
