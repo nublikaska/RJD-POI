@@ -17,9 +17,6 @@ class AuthFragment : BaseFragment<AuthViewModel>() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == AUTH_REQ_CODE && resultCode == RESULT_OK) {
-
-            //todo nav to main
-        }
+        if (requestCode == AUTH_REQ_CODE && resultCode == RESULT_OK) viewModel.onAuthSuccess()
     }
 }
