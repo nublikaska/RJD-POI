@@ -6,6 +6,7 @@ import com.rzhd.poi.core.vm.BaseViewModel
 import com.rzhd.poi.data.db.Repository
 import com.rzhd.poi.domain.isLoggedIn
 import com.rzhd.poi.presentation.base.CreateTripScreen
+import com.rzhd.poi.presentation.base.CreatedTripsScreen
 import kotlinx.coroutines.launch
 import ru.terrakok.cicerone.Router
 
@@ -41,14 +42,12 @@ class AuthViewModel(
             val userTrips = repository.getUserTrips()
             needShowLoading.value = false
             when {
-                userTrips.isNotEmpty() -> {
-                    //TODO GO TO EXISTING TRIPS SCREEN
-                }
-                else -> router.newRootScreen(CreateTripScreen())
+                userTrips.isNotEmpty() -> router.newRootScreen(CreatedTripsScreen)
+                else -> router.newRootScreen(CreateTripScreen)
             }
         } catch (e: Exception) {
             needShowLoading.value = false
-            router.newRootScreen(CreateTripScreen())
+            router.newRootScreen(CreateTripScreen)
         }
     }
 }

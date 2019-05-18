@@ -2,7 +2,7 @@ package com.rzhd.poi.core.event
 
 import android.app.DatePickerDialog
 import androidx.fragment.app.Fragment
-import java.util.*
+import java.util.Calendar
 
 class ViewEventShowDatePicker(private val onDateSet: (day: Int, month: Int, year: Int) -> Unit) : ViewEvent {
 
@@ -13,11 +13,11 @@ class ViewEventShowDatePicker(private val onDateSet: (day: Int, month: Int, year
         }
         val calendar = Calendar.getInstance()
         DatePickerDialog(
-            fragment.context ?: return,
-            dateSetListener,
-            calendar.get(Calendar.YEAR),
-            calendar.get(Calendar.MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH)
+                fragment.context ?: return,
+                dateSetListener,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
         ).show()
     }
 }

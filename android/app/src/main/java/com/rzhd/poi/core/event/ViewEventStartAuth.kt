@@ -10,9 +10,9 @@ object ViewEventStartAuth : ViewEvent {
     override fun execute(fragment: Fragment) {
 
         val intent = AuthUI.getInstance().createSignInIntentBuilder()
-            .enableAnonymousUsersAutoUpgrade()
-            .setAvailableProviders(authProviders)
-            .build()
+                .enableAnonymousUsersAutoUpgrade()
+                .setAvailableProviders(authProviders)
+                .build()
         fragment.startActivityForResult(intent, AUTH_REQ_CODE)
     }
 }

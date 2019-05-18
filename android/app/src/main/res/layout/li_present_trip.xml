@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vmPresentTrip"
+            type="com.rzhd.poi.presentation.trip.created.PresentTripItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{() -> vmPresentTrip.onClick()}"
+            android:paddingStart="15dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="20dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/li_present_trip_civ_end"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:civ_border_color="#fff"
+                app:civ_border_width="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/scale_1200" />
+
+            <!--TODO IMAGE LOADING-->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/li_present_trip_civ_start"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="35dp"
+                app:civ_border_color="#fff"
+                app:civ_border_width="2dp"
+                app:layout_constraintEnd_toEndOf="@id/li_present_trip_civ_end"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/scale_1200" />
+
+            <TextView
+                android:id="@+id/li_present_trip_first_stop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@font/cera_medium"
+                android:text="@{vmPresentTrip.departureName}"
+                android:textColor="#000"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toStartOf="@id/li_present_trip_civ_start"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Екатеринбург Пасс" />
+
+            <TextView
+                android:id="@+id/li_present_trip_second_stop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/cera_medium"
+                android:text="@{vmPresentTrip.arrivalName}"
+                android:textColor="#000"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="@id/li_present_trip_first_stop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/li_present_trip_first_stop"
+                tools:text="Москва Казанская" />
+
+            <TextView
+                android:id="@+id/li_present_trip_train_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/cera_regular"
+                android:text="@{vmPresentTrip.trainNumber}"
+                android:textColor="#000"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@id/li_present_trip_second_stop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/li_present_trip_second_stop"
+                tools:text="Поезд №15" />
+
+            <TextView
+                android:id="@+id/li_present_trip_state"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/cera_regular"
+                android:text="@{vmPresentTrip.status}"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@id/li_present_trip_train_number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/li_present_trip_train_number"
+                app:textColorRes="@{vmPresentTrip.statusColorRes}"
+                tools:text="Поездка с 24.05.2019 по 23.06.2020" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

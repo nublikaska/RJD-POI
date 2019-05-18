@@ -18,10 +18,10 @@ abstract class DiffListAdapter<T : DiffListItemModel> : RecyclerView.Adapter<Bas
     protected abstract fun getListItemLayoutId(type: Int = 0): Int
 
     protected abstract fun fillHolderViews(
-        holder: BaseViewHolder?,
-        item: T,
-        viewType: Int,
-        payloads: MutableList<Any>? = null
+            holder: BaseViewHolder?,
+            item: T,
+            viewType: Int,
+            payloads: MutableList<Any>? = null
     )
 
     protected open fun getChangePayload(oldItem: T, newItem: T): String? = null
@@ -30,7 +30,7 @@ abstract class DiffListAdapter<T : DiffListItemModel> : RecyclerView.Adapter<Bas
         val inflater = LayoutInflater.from(parent.context)
 
         val viewDataBinding: ViewDataBinding =
-            DataBindingUtil.inflate(inflater!!, getListItemLayoutId(viewType), parent, false)
+                DataBindingUtil.inflate(inflater!!, getListItemLayoutId(viewType), parent, false)
 
         return BaseViewHolder(viewDataBinding, viewType)
     }
@@ -149,8 +149,8 @@ abstract class DiffListAdapter<T : DiffListItemModel> : RecyclerView.Adapter<Bas
 
         fun setLists(
 
-            oldItems: List<T>,
-            newItems: List<T>
+                oldItems: List<T>,
+                newItems: List<T>
 
         ) {
 

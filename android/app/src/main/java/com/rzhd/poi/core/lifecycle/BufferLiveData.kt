@@ -3,7 +3,7 @@ package com.rzhd.poi.core.lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import java.util.*
+import java.util.Queue
 import java.util.concurrent.LinkedBlockingQueue
 
 class BufferLiveData<T> : MutableLiveData<T>() where T : Any {

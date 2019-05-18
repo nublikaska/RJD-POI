@@ -4,14 +4,14 @@
     <data>
 
         <variable
-                name="vmRouteInfo"
-                type="com.rzhd.poi.presentation.trip.info.RouteInfoViewModel"/>
+            name="vmRouteInfo"
+            type="com.rzhd.poi.presentation.trip.info.RouteInfoViewModel" />
     </data>
 
     <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     </LinearLayout>
 </layout>

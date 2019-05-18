@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navigator.applyCommands(arrayOf(Replace(AuthScreen())))
+        navigator.applyCommands(arrayOf(Replace(AuthScreen)))
     }
 
     override fun onResumeFragments() {

@@ -4,8 +4,8 @@ import androidx.annotation.LayoutRes
 
 open class SingleItemLayoutDiffListAdapter<T : DiffListItemModel>(
 
-    @LayoutRes private val itemLayoutId: Int,
-    private val dataBindingVariable: Int
+        @LayoutRes private val itemLayoutId: Int,
+        private val dataBindingVariable: Int
 
 ) : DiffListAdapter<T>() {
 

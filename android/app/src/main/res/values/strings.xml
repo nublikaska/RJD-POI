@@ -11,4 +11,6 @@
     <string name="departure_date">Дата выезда</string>
     <string name="all_done">Все готово</string>
     <string name="train_number_hint">015E</string>
+    <string name="my_trips">Мои поездки</string>
+    <string name="new_trip">Новое путешествие</string>
 </resources>

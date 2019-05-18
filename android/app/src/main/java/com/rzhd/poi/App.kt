@@ -6,6 +6,7 @@ import com.rzhd.poi.data.prefs.sharedPrefsModule
 import com.rzhd.poi.presentation.auth.authModule
 import com.rzhd.poi.presentation.base.navigationModule
 import com.rzhd.poi.presentation.trip.create.createTripModule
+import com.rzhd.poi.presentation.trip.created.createdTripsModule
 import com.rzhd.poi.presentation.trip.info.routeInfoModule
 import com.rzhd.poi.presentation.trip.station.selectStationModule
 import org.koin.android.ext.koin.androidContext
@@ -26,6 +27,7 @@ class App : Application() {
                 createTripModule,
                 selectStationModule,
                 routeInfoModule,
+                createdTripsModule,
 
                 navigationModule,
 

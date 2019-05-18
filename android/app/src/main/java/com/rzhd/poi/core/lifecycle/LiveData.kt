@@ -10,7 +10,7 @@ import kotlin.reflect.KProperty
 
 private class MutableLiveDataDelegate<in R, T : Any>(
 
-    private val liveData: MutableLiveData<T>
+        private val liveData: MutableLiveData<T>
 
 ) : ReadOnlyProperty<R, MutableLiveData<T>> {
 
@@ -33,7 +33,7 @@ fun <R, T : Any> LifecycleOwner.mutableLiveData(initialValue: T? = null, onChang
 
 private class NotNullLiveDataDelegate<in R, T : Any>(
 
-    private val liveData: NotNullLiveData<T>
+        private val liveData: NotNullLiveData<T>
 
 ) : ReadOnlyProperty<R, NotNullLiveData<T>> {
 
