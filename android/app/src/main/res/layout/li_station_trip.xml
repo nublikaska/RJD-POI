@@ -94,7 +94,7 @@
             android:padding="4dp"
             android:text="@{vmStationTrip.stopTime}"
             android:textSize="13sp"
-            app:isVisible="@{!vmStation.stopTime.isEmpty()}"
+            app:isVisible="@{!vmStationTrip.stopTime.isEmpty()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
