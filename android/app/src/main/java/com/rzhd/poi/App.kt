@@ -8,7 +8,9 @@ import com.rzhd.poi.presentation.base.navigationModule
 import com.rzhd.poi.presentation.trip.create.createTripModule
 import com.rzhd.poi.presentation.trip.created.createdTripsModule
 import com.rzhd.poi.presentation.trip.info.routeInfoModule
-import com.rzhd.poi.presentation.trip.station.selectStationModule
+import com.rzhd.poi.presentation.trip.poi.poiModule
+import com.rzhd.poi.presentation.trip.station.info.stationInfoModule
+import com.rzhd.poi.presentation.trip.station.select.selectStationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -28,6 +30,8 @@ class App : Application() {
                     selectStationModule,
                     routeInfoModule,
                     createdTripsModule,
+                    stationInfoModule,
+                    poiModule,
 
                     navigationModule,
 

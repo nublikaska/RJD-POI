@@ -42,7 +42,9 @@
             android:layout_weight="1"
             app:adapter="@{vmCreatedTrips.adapter}"
             app:fixedSize="@{false}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:paddingBottom="20dp"
+            android:clipToPadding="false"/>
 
         <FrameLayout
             android:layout_width="match_parent"

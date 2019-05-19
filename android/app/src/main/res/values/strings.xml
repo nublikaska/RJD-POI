@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RZHD POI</string>
+    <string name="app_name">GoGoTrain</string>
     <string name="app_key">com.rzhd.poi</string>
     <string name="app_title">Gogotrain</string>
     <string name="auth_description">Путешествуйте по России на позде\nи узнавайте где и какие места\nвы проезжаете</string>
@@ -13,4 +13,6 @@
     <string name="train_number_hint">015E</string>
     <string name="my_trips">Мои поездки</string>
     <string name="new_trip">Новое путешествие</string>
+    <string name="local_time">Время местное</string>
+    <string name="time_warning">Будьте внимательны, в работе приложения мы используем местное время.</string>
 </resources>

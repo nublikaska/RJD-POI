@@ -1,4 +1,4 @@
-package com.rzhd.poi.presentation.trip.station
+package com.rzhd.poi.presentation.trip.station.select
 
 import android.os.Parcelable
 import androidx.core.os.bundleOf

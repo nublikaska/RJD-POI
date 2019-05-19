@@ -1,4 +1,4 @@
-package com.rzhd.poi.presentation.trip.station
+package com.rzhd.poi.presentation.trip.station.select
 
 import android.content.Context
 import com.rzhd.poi.R

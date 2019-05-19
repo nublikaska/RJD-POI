@@ -1,4 +1,4 @@
-package com.rzhd.poi.presentation.trip.station
+package com.rzhd.poi.presentation.trip.station.select
 
 import com.rzhd.poi.BR
 import com.rzhd.poi.R

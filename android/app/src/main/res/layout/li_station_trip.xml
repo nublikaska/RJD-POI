@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vmStationTrip"
+            type="com.rzhd.poi.presentation.trip.info.RouteInfoItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="@{vmStationTrip.isPassed ? 1f : 0.5f}"
+        tools:layout_marginTop="10dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1a000000"
+            app:isVisible="@{vmStationTrip.isFirstInRegion}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/li_station_trip_civ"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            app:isVisible="@{vmStationTrip.regionPicRef != null}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:storageReference="@{vmStationTrip.regionPicRef}"
+            app:useInvisible="@{true}" />
+
+        <TextView
+            android:id="@+id/li_station_trip_global_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/cera_bold"
+            android:text="@{vmStationTrip.stopGlobalTime}"
+            android:textColor="#000"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/li_station_trip_civ"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="08:15" />
+
+        <TextView
+            android:id="@+id/li_station_trip_station"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/cera_bold"
+            android:text="@{vmStationTrip.stopName}"
+            android:textColor="#000"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@id/li_station_trip_area"
+            app:layout_constraintEnd_toStartOf="@id/li_station_trip_stop_time"
+            app:layout_constraintStart_toEndOf="@id/li_station_trip_global_time"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Екатеринбург" />
+
+        <TextView
+            android:id="@+id/li_station_trip_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/cera_regular"
+            android:text="@{vmStationTrip.stopRegion}"
+            android:textColor="@color/grey"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/li_station_trip_station"
+            app:layout_constraintStart_toStartOf="@id/li_station_trip_station"
+            app:layout_constraintTop_toBottomOf="@id/li_station_trip_station"
+            tools:text="Свердловская обл" />
+
+        <TextView
+            android:id="@+id/li_station_trip_stop_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/cera_regular"
+            android:padding="4dp"
+            android:text="@{vmStationTrip.stopTime}"
+            android:textSize="13sp"
+            app:isVisible="@{!vmStationTrip.stopTime.isEmpty()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textBackgroundWithAlpha="@{vmStationTrip.isGoodForGo ? @color/green : @color/grey}"
+            app:textColorRes="@{vmStationTrip.isGoodForGo ? @color/green : @color/grey}"
+            app:useInvisible="@{true}"
+            tools:text="08:15" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#1a000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/li_station_trip_area" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
