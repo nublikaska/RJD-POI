@@ -97,18 +97,18 @@ class StationTimeTableViewCell: UITableViewCell {
         horizontalLine.snp.makeConstraints { maker in
             maker.left.top.equalToSuperview().offset(10)
             maker.right.equalToSuperview().offset(-10)
-            maker.height.equalTo(4)
+            maker.height.equalTo(2)
         }
         
         verticalLineLeft.snp.makeConstraints { maker in
             maker.left.equalToSuperview().offset(10)
-            maker.width.equalTo(4)
+            maker.width.equalTo(2)
             maker.height.equalTo(20)
         }
         
         verticalLineRight.snp.makeConstraints { maker in
             maker.right.equalToSuperview().offset(-10)
-            maker.width.equalTo(4)
+            maker.width.equalTo(2)
             maker.height.equalTo(20)
         }
         
@@ -132,25 +132,25 @@ class StationTimeTableViewCell: UITableViewCell {
             maker.width.equalTo(100)
             maker.top.equalTo(horizontalLine.snp.bottom).offset(10)
         }
-//
+
         arrivalLabel.snp.makeConstraints { maker in
             maker.left.equalToSuperview().offset(20)
             maker.width.equalTo(100)
-            maker.top.equalTo(arrivalTitleLabel.snp.bottom).offset(10)
+            maker.top.equalTo(arrivalTitleLabel.snp.bottom).offset(-10)
             maker.bottom.equalToSuperview().offset(-10)
         }
 
         stopLabel.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
             maker.width.equalTo(100)
-            maker.top.equalTo(stopTitleLabel.snp.bottom).offset(10)
+            maker.top.equalTo(stopTitleLabel.snp.bottom).offset(-10)
             maker.bottom.equalToSuperview().offset(-10)
         }
 
         departureLabel.snp.makeConstraints { maker in
             maker.right.equalToSuperview().offset(-20)
             maker.width.equalTo(100)
-            maker.top.equalTo(departureTitleLabel.snp.bottom).offset(10)
+            maker.top.equalTo(departureTitleLabel.snp.bottom).offset(-10)
             maker.bottom.equalToSuperview().offset(-10)
         }
     }

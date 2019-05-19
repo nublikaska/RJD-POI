@@ -105,4 +105,34 @@ class APIManager {
             }
         }
     }
+    
+    func getArrayOfPOIsWith(ids: [String], completion: @escaping ([POIModel]) -> ()) {
+        
+        var pois = [POIModel]()
+        let dispatchGroup = DispatchGroup()
+        for id in ids {
+            dispatchGroup.enter()
+            getPoiWith(id: id) { poi in
+                pois.append(poi)
+                dispatchGroup.leave()
+            }
+        }
+        dispatchGroup.notify(queue: .main) {
+            completion(pois)
+        }
+    }
+    
+    func getPoiWith(id: String, completion: @escaping (POIModel) -> ()) {
+        let querry = db.collection("Poi").document(id)
+        querry.getDocument() { (document, err) in
+            if let document = document, document.exists, let data = document.data() {
+                let poiModel = Mapper<POIModel>().map(JSON: data)
+                if let poi = poiModel {
+                    var bufferPoi = poi
+                    bufferPoi.id = document.documentID
+                    completion(bufferPoi)
+                }
+            }
+        }
+    }
 }

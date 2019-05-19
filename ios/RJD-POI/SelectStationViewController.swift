@@ -44,7 +44,13 @@ class SelectStationViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        
+        title = "Выберите остановку"
 
+        let backImage = UIImage.init(named: "back_button_image")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem?.tintColor = .rjdAction
+        
         stationsTableView.dataSource = self
         stationsTableView.delegate = self
         stationsTableView.register(StopTableViewCell.self, forCellReuseIdentifier: "stopCellId")
@@ -54,6 +60,10 @@ class SelectStationViewController: UIViewController {
         stationsTableView.snp.makeConstraints { maker in
             maker.edges.equalToSuperview()
         }
+    }
+    
+    @objc func back() -> Void {
+        navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

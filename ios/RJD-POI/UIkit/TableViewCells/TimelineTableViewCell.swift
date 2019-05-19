@@ -17,6 +17,7 @@ class TimelineTableViewCell: UITableViewCell {
     let stopTimeLabel = UILabel()
     
     let timelineView = UIView()
+    let horizontalLine = UIView()
     
     
     override func awakeFromNib() {
@@ -37,6 +38,7 @@ class TimelineTableViewCell: UITableViewCell {
         addSubview(areaNameLabel)
         addSubview(stopTimeLabel)
         addSubview(timelineView)
+        addSubview(horizontalLine)
         
         configureSubviews()
     }
@@ -52,12 +54,14 @@ class TimelineTableViewCell: UITableViewCell {
         areaNameLabel.textColor = .lightGray
         
         stopTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: 12, weight: .light)
-        stopTimeLabel.textColor = .lightGray
+        stopTimeLabel.textColor = .gray
         
-        stopTimeLabel.layer.cornerRadius = 10
+        stopTimeLabel.layer.cornerRadius = 4
+        stopTimeLabel.clipsToBounds = true
         stopTimeLabel.backgroundColor = .groupTableViewBackground
         
         timelineView.backgroundColor = .groupTableViewBackground
+        horizontalLine.backgroundColor = .groupTableViewBackground
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,19 +79,26 @@ class TimelineTableViewCell: UITableViewCell {
         
         timelineView.snp.makeConstraints { maker in
             maker.left.equalTo(arrivalTimeLabel.snp.right).offset(10)
-            maker.width.equalTo(6)
+            maker.width.equalTo(4)
             maker.top.bottom.equalToSuperview()
         }
         
+        horizontalLine.snp.makeConstraints { maker in
+            maker.left.equalTo(timelineView.snp.left)
+            maker.centerY.equalToSuperview()
+            maker.width.equalTo(12)
+            maker.height.equalTo(4)
+        }
+        
         stationNameLabel.snp.makeConstraints { maker in
-            maker.left.equalTo(timelineView.snp.right).offset(10)
+            maker.left.equalTo(timelineView.snp.right).offset(14)
             maker.right.lessThanOrEqualTo(stopTimeLabel.snp.left).offset(-20)
             maker.centerY.equalToSuperview().offset(-20)
             maker.bottom.equalTo(areaNameLabel.snp.top).offset(20)
         }
         
         areaNameLabel.snp.makeConstraints { maker in
-            maker.left.equalTo(timelineView.snp.right).offset(10)
+            maker.left.equalTo(timelineView.snp.right).offset(14)
             maker.right.lessThanOrEqualTo(stopTimeLabel.snp.left).offset(-20)
             maker.centerY.equalToSuperview().offset(20)
             maker.bottom.equalToSuperview().offset(-20)
@@ -96,7 +107,7 @@ class TimelineTableViewCell: UITableViewCell {
         stopTimeLabel.snp.makeConstraints { maker in
             maker.right.equalToSuperview().offset(-20)
             maker.centerY.equalToSuperview()
-            stopTimeLabel.layer.cornerRadius = 10
+            maker.height.equalTo(20)
         }
     }
 }

@@ -59,14 +59,18 @@ class StationHeaderTableViewCell: UITableViewCell {
             maker.left.equalToSuperview().offset(20)
             maker.right.equalToSuperview().offset(-20)
             maker.top.equalToSuperview().offset(10)
-            maker.bottom.equalTo(subtitleLabel.snp.top).offset(-10)
+//            maker.bottom.equalTo(subtitleLabel.snp.top).offset(-10)
+            
+            maker.height.equalTo(20)
         }
         
         subtitleLabel.snp.makeConstraints { maker in
             maker.left.equalToSuperview().offset(20)
             maker.right.equalToSuperview().offset(-20)
             maker.top.greaterThanOrEqualTo(titleLabel.snp.bottom).offset(20)
-            maker.bottom.equalTo(detailsLabel.snp.top).offset(-10)
+//            maker.bottom.equalTo(detailsLabel.snp.top).offset(-10)
+            
+            maker.height.equalTo(20)
         }
         
         detailsLabel.snp.makeConstraints { maker in

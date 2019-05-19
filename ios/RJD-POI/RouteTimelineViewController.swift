@@ -40,6 +40,10 @@ class RouteTimelineViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        let backImage = UIImage.init(named: "back_button_image")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(back))
+        navigationItem.leftBarButtonItem?.tintColor = .rjdAction
+        
         if let route = route {
             title = "Маршрут поезда №" + route.number
         }
@@ -58,6 +62,10 @@ class RouteTimelineViewController: UIViewController {
         
         self.view.endEditing(true)
     }
+    
+    @objc func back() -> Void {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension RouteTimelineViewController: UITableViewDelegate, UITableViewDataSource {
@@ -69,10 +77,24 @@ extension RouteTimelineViewController: UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "timelineCellId", for: indexPath) as! TimelineTableViewCell
         if let route = route {
             let station = route.stations[indexPath.row]
-            cell.arrivalTimeLabel.text = station.arrivalTime
+            if indexPath.row == 0, station.arrivalTime == "0" {
+                cell.arrivalTimeLabel.text = route.departure
+            } else {
+                cell.arrivalTimeLabel.text = station.arrivalTime
+            }
             cell.stationNameLabel.text = station.stopsName
             cell.areaNameLabel.text = station.areaName
             cell.stopTimeLabel.text = " \(station.stopTime) мин. "
+            
+            if let startStation = startStation {
+                if station.order < startStation.order {
+                    cell.timelineView.backgroundColor = .rjdGray
+                    cell.horizontalLine.backgroundColor = .rjdGray
+                } else {
+                    cell.timelineView.backgroundColor = .rjdGreen
+                    cell.horizontalLine.backgroundColor = .rjdGreen
+                }
+            }
         }
         
         return cell

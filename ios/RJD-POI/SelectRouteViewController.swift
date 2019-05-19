@@ -36,8 +36,10 @@ class SelectRouteViewController: UIViewController {
         title = "Поезд, города и дата"
         view.backgroundColor = .white
         
-        doneButton.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        doneButton.backgroundColor = .rjdGreen
         doneButton.setTitle("Всё готово", for: .normal)
+        doneButton.titleLabel?.font = UIFont.monospacedDigitSystemFont(ofSize: 16, weight: .bold)
+        doneButton.setTitleShadowColor(.black, for: .normal)
         doneButton.layer.cornerRadius = 10
         doneButton.addTarget(self, action: #selector(viewRoute), for: .touchUpInside)
         view.addSubview(doneButton)

@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		854D4993B35E5424CC5BA8F6 /* Pods_RJD_POITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 366D7DEB09257965D56E0156 /* Pods_RJD_POITests.framework */; };
+		AA0CDA012291311800B1BA40 /* POIDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0CDA002291311800B1BA40 /* POIDetailsViewController.swift */; };
 		AA5917A1229043B800E174DD /* StationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917A0229043B800E174DD /* StationDetailsViewController.swift */; };
 		AA5917A322904B1300E174DD /* StationHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917A222904B1300E174DD /* StationHeaderTableViewCell.swift */; };
 		AA5917A522904EAF00E174DD /* StationTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917A422904EAF00E174DD /* StationTimeTableViewCell.swift */; };
+		AA5917A822908E7800E174DD /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917A722908E7800E174DD /* DateFormatters.swift */; };
+		AA5917AA2290910000E174DD /* ColorsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917A92290910000E174DD /* ColorsHelper.swift */; };
+		AA5917B22290A49500E174DD /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917B12290A49500E174DD /* CollectionViewTableViewCell.swift */; };
+		AA5917BB2291217200E174DD /* POICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917BA2291217200E174DD /* POICollectionViewCell.swift */; };
+		AA5917BD229123D200E174DD /* POIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5917BC229123D200E174DD /* POIModel.swift */; };
 		AA78CA37226F90880038FCAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78CA36226F90880038FCAE /* AppDelegate.swift */; };
 		AA78CA39226F90880038FCAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78CA38226F90880038FCAE /* ViewController.swift */; };
 		AA78CA3C226F90880038FCAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA78CA3A226F90880038FCAE /* Main.storyboard */; };
@@ -47,9 +53,15 @@
 		8052F7576ADF6089FD3FAD3B /* Pods-RJD-POITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RJD-POITests.debug.xcconfig"; path = "Target Support Files/Pods-RJD-POITests/Pods-RJD-POITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9097BE047D67803F91500602 /* Pods-RJD-POI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RJD-POI.release.xcconfig"; path = "Target Support Files/Pods-RJD-POI/Pods-RJD-POI.release.xcconfig"; sourceTree = "<group>"; };
 		9B15733C68D293311EADEC28 /* Pods-RJD-POITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RJD-POITests.release.xcconfig"; path = "Target Support Files/Pods-RJD-POITests/Pods-RJD-POITests.release.xcconfig"; sourceTree = "<group>"; };
+		AA0CDA002291311800B1BA40 /* POIDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIDetailsViewController.swift; sourceTree = "<group>"; };
 		AA5917A0229043B800E174DD /* StationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetailsViewController.swift; sourceTree = "<group>"; };
 		AA5917A222904B1300E174DD /* StationHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		AA5917A422904EAF00E174DD /* StationTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTimeTableViewCell.swift; sourceTree = "<group>"; };
+		AA5917A722908E7800E174DD /* DateFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
+		AA5917A92290910000E174DD /* ColorsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsHelper.swift; sourceTree = "<group>"; };
+		AA5917B12290A49500E174DD /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		AA5917BA2291217200E174DD /* POICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POICollectionViewCell.swift; sourceTree = "<group>"; };
+		AA5917BC229123D200E174DD /* POIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIModel.swift; sourceTree = "<group>"; };
 		AA78CA33226F90880038FCAE /* RJD-POI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RJD-POI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA78CA36226F90880038FCAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA78CA38226F90880038FCAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +115,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AA5917A622908E5800E174DD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AA5917A722908E7800E174DD /* DateFormatters.swift */,
+				AA5917A92290910000E174DD /* ColorsHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AA5917B9229120B500E174DD /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				AA5917BA2291217200E174DD /* POICollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		AA78CA2A226F90880038FCAE = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +155,7 @@
 		AA78CA35226F90880038FCAE /* RJD-POI */ = {
 			isa = PBXGroup;
 			children = (
+				AA5917A622908E5800E174DD /* Helpers */,
 				AA848B54228FEA3100B1CECA /* API */,
 				AA848B47228FEA0200B1CECA /* Models */,
 				AA848B4A228FEA0200B1CECA /* UIkit */,
@@ -134,6 +164,7 @@
 				AA848B57229003C200B1CECA /* SelectStationViewController.swift */,
 				AA848B59229026B600B1CECA /* RouteTimelineViewController.swift */,
 				AA5917A0229043B800E174DD /* StationDetailsViewController.swift */,
+				AA0CDA002291311800B1BA40 /* POIDetailsViewController.swift */,
 				AA78CA38226F90880038FCAE /* ViewController.swift */,
 				AA78CA3A226F90880038FCAE /* Main.storyboard */,
 				AA78CA40226F908A0038FCAE /* Assets.xcassets */,
@@ -159,6 +190,7 @@
 			children = (
 				AA848B48228FEA0200B1CECA /* RoutesModel.swift */,
 				AA848B49228FEA0200B1CECA /* StationModel.swift */,
+				AA5917BC229123D200E174DD /* POIModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				AA848B4B228FEA0200B1CECA /* InputWithTitle.swift */,
+				AA5917B9229120B500E174DD /* CollectionViewCells */,
 				AA848B4C228FEA0200B1CECA /* TableViewCells */,
 			);
 			path = UIkit;
@@ -179,6 +212,7 @@
 				AA848B5B2290295400B1CECA /* TimelineTableViewCell.swift */,
 				AA5917A222904B1300E174DD /* StationHeaderTableViewCell.swift */,
 				AA5917A422904EAF00E174DD /* StationTimeTableViewCell.swift */,
+				AA5917B12290A49500E174DD /* CollectionViewTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -403,16 +437,22 @@
 				AA5917A522904EAF00E174DD /* StationTimeTableViewCell.swift in Sources */,
 				AA5917A1229043B800E174DD /* StationDetailsViewController.swift in Sources */,
 				AA848B5A229026B600B1CECA /* RouteTimelineViewController.swift in Sources */,
+				AA0CDA012291311800B1BA40 /* POIDetailsViewController.swift in Sources */,
 				AA848B53228FEA1000B1CECA /* SelectRouteViewController.swift in Sources */,
+				AA5917A822908E7800E174DD /* DateFormatters.swift in Sources */,
 				AA78CA39226F90880038FCAE /* ViewController.swift in Sources */,
 				AA848B50228FEA0300B1CECA /* InputWithTitle.swift in Sources */,
 				AA5917A322904B1300E174DD /* StationHeaderTableViewCell.swift in Sources */,
 				AA848B5C2290295400B1CECA /* TimelineTableViewCell.swift in Sources */,
 				AA848B58229003C200B1CECA /* SelectStationViewController.swift in Sources */,
+				AA5917BD229123D200E174DD /* POIModel.swift in Sources */,
 				AA848B56228FEA5600B1CECA /* APIManager.swift in Sources */,
 				AA848B4F228FEA0300B1CECA /* StationModel.swift in Sources */,
 				AA78CA3F226F90880038FCAE /* RJD_POI.xcdatamodeld in Sources */,
+				AA5917AA2290910000E174DD /* ColorsHelper.swift in Sources */,
+				AA5917B22290A49500E174DD /* CollectionViewTableViewCell.swift in Sources */,
 				AA848B51228FEA0300B1CECA /* StopTableViewCell.swift in Sources */,
+				AA5917BB2291217200E174DD /* POICollectionViewCell.swift in Sources */,
 				AA78CA37226F90880038FCAE /* AppDelegate.swift in Sources */,
 				AA848B4E228FEA0300B1CECA /* RoutesModel.swift in Sources */,
 			);
