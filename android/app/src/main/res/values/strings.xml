@@ -13,4 +13,6 @@
     <string name="train_number_hint">015E</string>
     <string name="my_trips">Мои поездки</string>
     <string name="new_trip">Новое путешествие</string>
+    <string name="local_time">Время местное</string>
+    <string name="time_warning">Будьте внимательны, в работе приложения мы используем местное время.</string>
 </resources>

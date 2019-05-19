@@ -6,7 +6,7 @@
 
         <variable
             name="vmSimpleStation"
-            type="com.rzhd.poi.presentation.trip.station.SimpleStationItemViewModel" />
+            type="com.rzhd.poi.presentation.trip.station.select.SimpleStationItemViewModel" />
     </data>
 
     <TextView

@@ -6,7 +6,7 @@
 
         <variable
             name="vmSelectStation"
-            type="com.rzhd.poi.presentation.trip.station.SelectStationViewModel" />
+            type="com.rzhd.poi.presentation.trip.station.select.SelectStationViewModel" />
     </data>
 
     <LinearLayout

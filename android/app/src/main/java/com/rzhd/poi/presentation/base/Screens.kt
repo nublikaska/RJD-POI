@@ -5,7 +5,9 @@ import com.rzhd.poi.presentation.auth.AuthFragment
 import com.rzhd.poi.presentation.trip.create.CreateTripFragment
 import com.rzhd.poi.presentation.trip.created.CreatedTripsFragment
 import com.rzhd.poi.presentation.trip.info.RouteInfoFragment
-import com.rzhd.poi.presentation.trip.station.SelectStationFragment
+import com.rzhd.poi.presentation.trip.poi.PoiFragment
+import com.rzhd.poi.presentation.trip.station.info.StationInfoFragment
+import com.rzhd.poi.presentation.trip.station.select.SelectStationFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
 object AuthScreen : SupportAppScreen() {
@@ -38,4 +40,14 @@ class RouteInfoScreen(private val routeId: String) : SupportAppScreen() {
 object CreatedTripsScreen : SupportAppScreen() {
 
     override fun getFragment(): Fragment = CreatedTripsFragment()
+}
+
+class PoiScreen(private val poiId: String) : SupportAppScreen() {
+
+    override fun getFragment(): Fragment = PoiFragment()
+}
+
+class StationInfoScreen(private val stationId: String) : SupportAppScreen() {
+
+    override fun getFragment(): Fragment = StationInfoFragment()
 }

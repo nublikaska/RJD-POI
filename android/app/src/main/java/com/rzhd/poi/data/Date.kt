@@ -17,3 +17,12 @@ inline val String.asCalendar: Calendar
             set(year, month - 1, day)
         }
     }
+
+inline val String.asTime: Time
+    get() {
+
+        val (hours: Int, minutes: Int) = split(':').map { it.toInt() }
+        return Time(hours, minutes)
+    }
+
+data class Time(val hours: Int, val minutes: Int)

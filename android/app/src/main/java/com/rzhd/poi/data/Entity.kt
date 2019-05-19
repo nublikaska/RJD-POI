@@ -34,3 +34,9 @@ class UserTrip(val id: String, map: Map<String, Any?>) {
     val departureId: String by map
     val arrivalId: String by map
 }
+
+class Poi(val id: String, map: Map<String, Any?>) {
+
+    val areaName: String by map
+    val detailInfo: String by map
+}

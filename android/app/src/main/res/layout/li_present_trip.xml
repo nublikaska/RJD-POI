@@ -40,7 +40,6 @@
                 app:storageReference="@{vmPresentTrip.arrivalRegionLink}"
                 tools:src="@drawable/scale_1200" />
 
-            <!--TODO IMAGE LOADING-->
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/li_present_trip_civ_start"
                 android:layout_width="40dp"
