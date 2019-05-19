@@ -79,7 +79,7 @@ private class RepositoryImpl(
 
             val task = firestore.collection("Route").document(routeId).get()
             val docRef = Tasks.await(task)
-            Route(docRef.id, docRef.data!!).also { routesCache.add(it) }
+            Route(docRef.id, docRef.data!!)
         }
     }
 

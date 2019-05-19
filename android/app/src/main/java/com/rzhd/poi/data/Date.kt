@@ -6,7 +6,7 @@ inline val currentDate: Calendar
     get() = Calendar.getInstance()
 
 inline val Calendar.asDateString: String
-    get() = "${get(Calendar.DAY_OF_MONTH)}.${get(Calendar.MONTH)}.${get(Calendar.YEAR)}"
+    get() = "${get(Calendar.DAY_OF_MONTH)}.${get(Calendar.MONTH) + 1}.${get(Calendar.YEAR)}"
 
 inline val String.asCalendar: Calendar
     get() {
@@ -14,6 +14,6 @@ inline val String.asCalendar: Calendar
         val (day: Int, month: Int, year: Int) = split('.').map { it.toInt() }
         return Calendar.getInstance().apply {
             clear()
-            set(year, month, day)
+            set(year, month - 1, day)
         }
     }
