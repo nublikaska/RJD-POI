@@ -1,6 +1,7 @@
 package com.rzhd.poi.presentation.trip.created
 
 import androidx.annotation.ColorRes
+import com.google.firebase.storage.StorageReference
 import com.rzhd.poi.BR
 import com.rzhd.poi.R
 import com.rzhd.poi.core.list.DiffListItemModel
@@ -13,8 +14,8 @@ data class PresentTripItemViewModel(
         val trainNumber: String,
         val status: String,
         @ColorRes val statusColorRes: Int,
-        val departureRegionLink: String = "",
-        val arrivalRegionLink: String = ""
+        val departureRegionLink: StorageReference,
+        val arrivalRegionLink: StorageReference
 ) : DiffListItemModel {
 
     lateinit var onClickLambda: (routeId: String) -> Unit
