@@ -73,6 +73,16 @@ private class RepositoryImpl(
         routesCache.apply { addAll(Tasks.await(task).map { document -> Route(document.id, document.data) }) }
     }
 
+    override suspend fun getRoute(routeId: String): Route = withContext(IO) {
+
+        routesCache.find { it.id == routeId } ?: run {
+
+            val task = firestore.collection("Route").document(routeId).get()
+            val docRef = Tasks.await(task)
+            Route(docRef.id, docRef.data!!).also { routesCache.add(it) }
+        }
+    }
+
     override suspend fun getStationsForRoute(route: Route): List<Station> = withContext(IO) {
 
         if (stationsCache[route.id] != null) return@withContext stationsCache[route.id]!!

@@ -101,7 +101,7 @@
                 android:fontFamily="@font/cera_regular"
                 android:text="@{vmPresentTrip.status}"
                 android:textSize="13sp"
-                app:layout_constraintEnd_toEndOf="@id/li_present_trip_train_number"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/li_present_trip_train_number"
                 app:textColorRes="@{vmPresentTrip.statusColorRes}"

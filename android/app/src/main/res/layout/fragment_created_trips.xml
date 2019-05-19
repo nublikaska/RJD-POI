@@ -1,73 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
-                name="vmCreatedTrips"
-                type="com.rzhd.poi.presentation.trip.created.CreatedTripsViewModel"/>
+            name="vmCreatedTrips"
+            type="com.rzhd.poi.presentation.trip.created.CreatedTripsViewModel" />
     </data>
 
     <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#90deeeff">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#90deeeff"
+        android:orientation="vertical">
 
         <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                app:isVisible="@{vmCreatedTrips.needShowLoading}"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:indeterminate="true"/>
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:isVisible="@{vmCreatedTrips.needShowLoading}" />
 
         <TextView
-                android:id="@+id/fragment_create_trip_toolbar"
-                android:layout_width="match_parent"
-                android:background="#fff"
-                android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:fontFamily="@font/cera_medium"
-                android:textColor="#000"
-                android:minHeight="44dp"
-                android:gravity="center"
-                android:text="@string/my_trips"/>
+            android:id="@+id/fragment_create_trip_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:fontFamily="@font/cera_medium"
+            android:gravity="center"
+            android:minHeight="44dp"
+            android:text="@string/my_trips"
+            android:textColor="#000"
+            android:textSize="17sp" />
 
         <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:adapter="@{vmCreatedTrips.adapter}"
+            app:fixedSize="@{false}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#fff">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff">
 
             <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#1a000000"/>
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1a000000" />
 
             <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:textSize="17sp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:background="@drawable/success_btn_bg"
-                    android:fontFamily="@font/cera_medium"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:text="@string/new_trip"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/success_btn_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="@font/cera_medium"
+                android:gravity="center"
+                android:onClick="@{() -> vmCreatedTrips.onNewTripClick()}"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/new_trip"
+                android:textColor="@android:color/white"
+                android:textSize="17sp" />
         </FrameLayout>
 
     </LinearLayout>

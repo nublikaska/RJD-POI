@@ -31,4 +31,6 @@ class UserTrip(val id: String, map: Map<String, Any?>) {
 
     val routeId: String by map
     val departureDate: String by map
+    val departureId: String by map
+    val arrivalId: String by map
 }
