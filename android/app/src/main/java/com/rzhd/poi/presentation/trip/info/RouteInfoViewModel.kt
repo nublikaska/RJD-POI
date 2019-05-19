@@ -78,7 +78,7 @@ class RouteInfoViewModel(
                             stopId = station.id,
                             stopName = station.stopsName,
                             stopRegion = station.areaName,
-                            stopGlobalTime = "08:15",
+                            stopGlobalTime = station.arrivalTime,
                             stopTime = when (index) {
                                 0, stations.lastIndex -> ""
                                 else -> "%d мин.".format(station.stopTime)
