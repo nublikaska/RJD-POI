@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vmCreateTrip"
+            type="com.rzhd.poi.presentation.trip.create.CreateTripViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:isVisible="@{vmCreateTrip.needShowLoading}" />
+
+        <TextView
+            android:id="@+id/fragment_create_trip_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cera_medium"
+            android:gravity="center"
+            android:minHeight="44dp"
+            android:text="@string/create_trip_toolbar_title"
+            android:textColor="#000"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="25dp"
+            android:paddingEnd="15dp"
+            app:isVisible="@{vmCreateTrip.needShowFields}">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="22dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_train" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cera_regular"
+                    android:text="@string/train_number"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_bg"
+                    android:fontFamily="@font/cera_medium"
+                    android:hint="@string/train_number_hint"
+                    android:imeOptions="actionDone"
+                    android:minHeight="35dp"
+                    android:singleLine="true"
+                    android:text="@={vmCreateTrip.routeCode}"
+                    android:textSize="21sp"
+                    tools:text="015e" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:onClick="@{() -> vmCreateTrip.onDepartureClick()}"
+            android:orientation="horizontal"
+            android:paddingStart="25dp"
+            android:paddingEnd="15dp"
+            app:isVisible="@{vmCreateTrip.needShowFields}">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_house" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cera_regular"
+                    android:text="@string/departure_point"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_bg"
+                    android:fontFamily="@font/cera_medium"
+                    android:minHeight="35dp"
+                    android:text="@{vmCreateTrip.departureName}"
+                    android:textColor="#000"
+                    android:textSize="21sp"
+                    tools:text="Екатеринбург" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:onClick="@{() -> vmCreateTrip.onArrivalClick()}"
+            android:orientation="horizontal"
+            android:paddingStart="25dp"
+            android:paddingEnd="15dp"
+            app:isVisible="@{vmCreateTrip.needShowFields}">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="22dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_fountain" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cera_regular"
+                    android:text="@string/arrival_point"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_bg"
+                    android:fontFamily="@font/cera_medium"
+                    android:minHeight="35dp"
+                    android:text="@{vmCreateTrip.arrivalName}"
+                    android:textColor="#000"
+                    android:textSize="21sp"
+                    tools:text="Москва" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:onClick="@{() -> vmCreateTrip.onDepartureTimeClick()}"
+            android:orientation="horizontal"
+            android:paddingStart="25dp"
+            android:paddingEnd="15dp"
+            app:isVisible="@{vmCreateTrip.needShowFields}">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="22dp"
+                android:layout_height="21dp"
+                android:src="@drawable/ic_alarm" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cera_regular"
+                    android:text="@string/departure_date"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_bg"
+                    android:fontFamily="@font/cera_medium"
+                    android:minHeight="35dp"
+                    android:text="@{vmCreateTrip.departureTime}"
+                    android:textColor="#000"
+                    android:textSize="21sp"
+                    tools:text="19.05.2019" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/success_btn_bg"
+            android:clickable="true"
+            android:enabled="@{vmCreateTrip.isButtonEnabled}"
+            android:focusable="true"
+            android:fontFamily="@font/cera_medium"
+            android:gravity="center"
+            android:onClick="@{() -> vmCreateTrip.onCreateClick()}"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/all_done"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"
+            app:isVisible="@{vmCreateTrip.needShowFields}" />
+    </LinearLayout>
+</layout>
