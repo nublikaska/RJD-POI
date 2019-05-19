@@ -2,21 +2,19 @@ package com.rzhd.poi.presentation.binding
 
 import android.content.res.ColorStateList
 import android.widget.TextView
-import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
+import androidx.annotation.ColorInt
 import androidx.core.graphics.ColorUtils
 import androidx.databinding.BindingAdapter
 
 @BindingAdapter("textColorRes")
-fun setColorByRes(textView: TextView, @ColorRes textColorResId: Int) {
+fun setColorByRes(textView: TextView, @ColorInt textColor: Int) {
 
-    textView.setTextColor(ContextCompat.getColor(textView.context, textColorResId))
+    textView.setTextColor(textColor)
 }
 
 @BindingAdapter("textBackgroundWithAlpha")
-fun setBackgroundAlphaColor(textView: TextView, @ColorRes bgColorResId: Int) {
+fun setBackgroundAlphaColor(textView: TextView, @ColorInt bgColor: Int) {
 
-    val color = ContextCompat.getColor(textView.context, bgColorResId)
-    val colorWithAlpha = ColorUtils.setAlphaComponent(color, 0x90)
+    val colorWithAlpha = ColorUtils.setAlphaComponent(bgColor, 0x90)
     textView.backgroundTintList = ColorStateList.valueOf(colorWithAlpha)
 }
