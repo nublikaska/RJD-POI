@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import ru.terrakok.cicerone.Router
-import java.util.Calendar
+import java.util.*
 
 val createdTripsModule = module {
 
@@ -50,11 +50,11 @@ class CreatedTripsViewModel(
 
     private fun onTripClicked(routeId: String) = router.navigateTo(RouteInfoScreen(routeId))
 
-    private inner class Mapper : (UserTrip, Route, List<Station>) -> PresentTripItemViewModel {
+    private inner class Mapper : (UserTrip, Route, List<StationFB>) -> PresentTripItemViewModel {
 
         override fun invoke(trip: UserTrip,
                             route: Route,
-                            stations: List<Station>): PresentTripItemViewModel {
+                            stations: List<StationFB>): PresentTripItemViewModel {
 
             val tripEndTime = trip.departureDate.asCalendar.apply { add(Calendar.MINUTE, route.travelTime) }
             val tripStartTime = trip.departureDate.asCalendar
@@ -64,8 +64,8 @@ class CreatedTripsViewModel(
 
             return PresentTripItemViewModel(
                     routeId = route.id,
-                    departureName = departureName.stopsName,
-                    arrivalName = arrivalName.stopsName,
+                    departureName = departureName.stopName,
+                    arrivalName = arrivalName.stopName,
                     trainNumber = "Поезд №%s".format(route.number),
                     statusColorRes = when (currentDate > tripEndTime || currentDate < tripStartTime) {
                         true -> R.color.grey

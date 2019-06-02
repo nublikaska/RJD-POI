@@ -1,8 +1,8 @@
 package com.rzhd.poi.data.db
 
 import com.rzhd.poi.data.Route
-import com.rzhd.poi.data.Station
 import com.rzhd.poi.data.StationDetailed
+import com.rzhd.poi.data.StationFB
 import com.rzhd.poi.data.UserTrip
 
 interface Repository {
@@ -12,6 +12,6 @@ interface Repository {
     suspend fun getUserTrips(): List<UserTrip>
     suspend fun getRoutes(): List<Route>
     suspend fun getRoute(routeId: String): Route
-    suspend fun getStationsForRoute(route: Route): List<Station>
-    suspend fun getStationDetailed(station: Station): StationDetailed?
+    suspend fun getStationsForRoute(route: Route): List<StationFB>
+    suspend fun getStationDetailed(station: StationFB): StationDetailed?
 }

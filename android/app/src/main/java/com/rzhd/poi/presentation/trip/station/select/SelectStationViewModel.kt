@@ -4,7 +4,7 @@ import android.content.Context
 import com.rzhd.poi.R
 import com.rzhd.poi.core.lifecycle.notNullLiveData
 import com.rzhd.poi.core.vm.BaseViewModel
-import com.rzhd.poi.data.Station
+import com.rzhd.poi.data.StationFB
 import com.rzhd.poi.data.db.Repository
 import com.rzhd.poi.data.prefs.SharedPrefs
 import com.rzhd.poi.domain.tripData
@@ -80,10 +80,10 @@ class SelectStationViewModel(
         }
     }
 
-    private inner class Mapper : (Station) -> SimpleStationItemViewModel {
+    private inner class Mapper : (StationFB) -> SimpleStationItemViewModel {
 
-        override fun invoke(station: Station): SimpleStationItemViewModel = SimpleStationItemViewModel(
-                name = station.stopsName,
+        override fun invoke(station: StationFB): SimpleStationItemViewModel = SimpleStationItemViewModel(
+                name = station.stopName,
                 id = station.id
         ).apply { onClickLambda = ::onItemClicked }
     }

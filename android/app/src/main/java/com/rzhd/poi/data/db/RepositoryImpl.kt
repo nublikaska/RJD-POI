@@ -3,8 +3,8 @@ package com.rzhd.poi.data.db
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.firestore.FirebaseFirestore
 import com.rzhd.poi.data.Route
-import com.rzhd.poi.data.Station
 import com.rzhd.poi.data.StationDetailed
+import com.rzhd.poi.data.StationFB
 import com.rzhd.poi.data.UserTrip
 import com.rzhd.poi.data.prefs.SharedPrefs
 import com.rzhd.poi.domain.currentUser
@@ -25,7 +25,7 @@ private class RepositoryImpl(
 ) : Repository {
 
     private val routesCache = mutableListOf<Route>()
-    private val stationsCache = mutableMapOf<String, List<Station>>()
+    private val stationsCache = mutableMapOf<String, List<StationFB>>()
     private val stationDetailedCache = mutableMapOf<String, StationDetailed>()
 
     override suspend fun createUserTrip() = withContext(IO) {
@@ -83,18 +83,18 @@ private class RepositoryImpl(
         }
     }
 
-    override suspend fun getStationsForRoute(route: Route): List<Station> = withContext(IO) {
+    override suspend fun getStationsForRoute(route: Route): List<StationFB> = withContext(IO) {
 
         if (stationsCache[route.id] != null) return@withContext stationsCache[route.id]!!
         stationsCache[route.id] = route.stopsIds.mapNotNull { stopId ->
-            val task = firestore.collection("Station").document(stopId).get()
+            val task = firestore.collection("StationFB").document(stopId).get()
             val docRef = Tasks.await(task)
-            docRef.data?.let { data -> Station(docRef.id, data) }
+            docRef.data?.let { data -> StationFB(docRef.id, data) }
         }.sortedBy { it.order }
         stationsCache[route.id]!!
     }
 
-    override suspend fun getStationDetailed(station: Station): StationDetailed? = withContext(IO) {
+    override suspend fun getStationDetailed(station: StationFB): StationDetailed? = withContext(IO) {
 
         if (stationDetailedCache[station.id] != null) return@withContext stationDetailedCache[station.id]
         val task = firestore.collection("StationDetailed").document(station.detailId).get()

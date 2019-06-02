@@ -129,14 +129,14 @@ class CreateTripViewModel(
                         routeId = route.id,
                         routeNumber = route.number,
                         departureId = dep.id,
-                        departureName = dep.stopsName,
+                        departureName = dep.stopName,
                         arrivalId = arr.id,
-                        arrivalName = arr.stopsName,
+                        arrivalName = arr.stopName,
                         departureTime = null
                 )
                 departureTime.value = ""
-                departureName.value = dep.stopsName
-                arrivalName.value = arr.stopsName
+                departureName.value = dep.stopName
+                arrivalName.value = arr.stopName
             }
         }
     }

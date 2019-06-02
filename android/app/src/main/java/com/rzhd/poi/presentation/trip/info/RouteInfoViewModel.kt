@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import ru.terrakok.cicerone.Router
-import java.util.Calendar
+import java.util.*
 
 val routeInfoModule = module {
 
@@ -69,14 +69,14 @@ class RouteInfoViewModel(
     //TODO router.navigateTo(StationInfoScreen(stationId))
     private fun onStationClick(stationId: String) = Unit
 
-    private inner class Mapper : (Route, List<Station>) -> List<RouteInfoItemViewModel> {
+    private inner class Mapper : (Route, List<StationFB>) -> List<RouteInfoItemViewModel> {
 
-        override fun invoke(route: Route, stations: List<Station>): List<RouteInfoItemViewModel> = stations
+        override fun invoke(route: Route, stations: List<StationFB>): List<RouteInfoItemViewModel> = stations
                 .mapIndexed { index, station ->
 
                     RouteInfoItemViewModel(
                             stopId = station.id,
-                            stopName = station.stopsName,
+                            stopName = station.stopName,
                             stopRegion = station.areaName,
                             stopGlobalTime = station.arrivalTime,
                             stopTime = when (index) {
