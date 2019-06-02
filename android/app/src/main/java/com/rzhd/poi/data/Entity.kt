@@ -7,7 +7,6 @@ class Route(val id: String, map: Map<String, Any>) {
     val departure: String by map
     val departurePlace: String by map
     val number: String by map
-    val stopsIds: List<String> by map
     val travelTime: Int by map
 }
 
@@ -22,24 +21,24 @@ class StationFB(val id: String, map: Map<String, Any>) {
     val routes: List<String> by map
 
     fun toStation(routeId: String): Station = Station(
-        id,
-        areaName,
-        arrivalTime.getValue(routeId),
-        detailId,
-        order.getValue(routeId),
-        stopTime.getValue(routeId),
-        stopName
+            id,
+            areaName,
+            arrivalTime.getValue(routeId),
+            detailId,
+            order.getValue(routeId),
+            stopTime.getValue(routeId),
+            stopName
     )
 }
 
 data class Station(
-    val id: String,
-    val areaName: String,
-    val arrivalTime: String,
-    val detailId: String,
-    val order: Int,
-    val stopTime: Int,
-    val stopName: String
+        val id: String,
+        val areaName: String,
+        val arrivalTime: String,
+        val detailId: String,
+        val order: Int,
+        val stopTime: Int,
+        val stopName: String
 )
 
 class StationDetailed(val id: String, map: Map<String, Any?>) {

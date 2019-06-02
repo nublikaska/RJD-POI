@@ -4,7 +4,7 @@ import android.content.Context
 import com.rzhd.poi.R
 import com.rzhd.poi.core.lifecycle.notNullLiveData
 import com.rzhd.poi.core.vm.BaseViewModel
-import com.rzhd.poi.data.StationFB
+import com.rzhd.poi.data.Station
 import com.rzhd.poi.data.db.Repository
 import com.rzhd.poi.data.prefs.SharedPrefs
 import com.rzhd.poi.domain.tripData
@@ -32,7 +32,7 @@ class SelectStationViewModel(
     val toolbarTitle by notNullLiveData("")
     val adapter = SimpleStationAdapter()
 
-    private val mapper by lazy { Mapper() }
+    private val mapper by lazy { Mapper(this::onItemClicked) }
 
     init {
 
@@ -80,11 +80,12 @@ class SelectStationViewModel(
         }
     }
 
-    private inner class Mapper : (StationFB) -> SimpleStationItemViewModel {
+    private class Mapper(private val onItemClicked: (String, String) -> Unit)
+        : (Station) -> SimpleStationItemViewModel {
 
-        override fun invoke(station: StationFB): SimpleStationItemViewModel = SimpleStationItemViewModel(
+        override fun invoke(station: Station): SimpleStationItemViewModel = SimpleStationItemViewModel(
                 name = station.stopName,
                 id = station.id
-        ).apply { onClickLambda = ::onItemClicked }
+        ).apply { onClickLambda = onItemClicked }
     }
 }

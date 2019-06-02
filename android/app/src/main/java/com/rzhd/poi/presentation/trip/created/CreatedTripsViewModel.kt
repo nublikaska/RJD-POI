@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import ru.terrakok.cicerone.Router
-import java.util.*
+import java.util.Calendar
 
 val createdTripsModule = module {
 
@@ -28,7 +28,7 @@ class CreatedTripsViewModel(
     val needShowLoading by notNullLiveData(false)
     val adapter = PresentTripAdapter()
 
-    private val mapper = Mapper()
+    private val mapper = Mapper(this::onTripClicked)
 
     init {
 
@@ -50,11 +50,12 @@ class CreatedTripsViewModel(
 
     private fun onTripClicked(routeId: String) = router.navigateTo(RouteInfoScreen(routeId))
 
-    private inner class Mapper : (UserTrip, Route, List<StationFB>) -> PresentTripItemViewModel {
+    private class Mapper(private val onTripClick: (String) -> Unit)
+        : (UserTrip, Route, List<Station>) -> PresentTripItemViewModel {
 
         override fun invoke(trip: UserTrip,
                             route: Route,
-                            stations: List<StationFB>): PresentTripItemViewModel {
+                            stations: List<Station>): PresentTripItemViewModel {
 
             val tripEndTime = trip.departureDate.asCalendar.apply { add(Calendar.MINUTE, route.travelTime) }
             val tripStartTime = trip.departureDate.asCalendar
@@ -77,7 +78,7 @@ class CreatedTripsViewModel(
                     },
                     departureRegionLink = storage.getReference("images/${departureName.areaName.asStorageName}.png"),
                     arrivalRegionLink = storage.getReference("images/${arrivalName.areaName.asStorageName}.png")
-            ).apply { onClickLambda = ::onTripClicked }
+            ).apply { onClickLambda = onTripClick }
         }
     }
 }

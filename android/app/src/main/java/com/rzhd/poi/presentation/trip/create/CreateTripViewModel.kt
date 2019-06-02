@@ -27,7 +27,7 @@ class CreateTripViewModel(
     val needShowFields by notNullLiveData(false)
     val needShowLoading by notNullLiveData(false)
 
-    val routeCode by notNullLiveData("", ::findRouteByCode)
+    val routeCode by notNullLiveData("") { findRouteByCode(it.toUpperCase()) }
     val departureName by notNullLiveData("") { checkButtonEnabled() }
     val arrivalName by notNullLiveData("") { checkButtonEnabled() }
     val departureTime by notNullLiveData("") { checkButtonEnabled() }
@@ -119,7 +119,7 @@ class CreateTripViewModel(
         if (code.isBlank() || code == sharedPrefs.tripData?.routeNumber) return
         searchJob?.cancel()
         searchJob = launch {
-            repository.getRoutes().find { it.number == code }?.let { route ->
+            repository.getRoutes().find { it.number == code.toUpperCase() }?.let { route ->
                 needShowLoading.value = true
                 val stations = repository.getStationsForRoute(route)
                 needShowLoading.value = false
